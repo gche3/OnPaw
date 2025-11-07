@@ -57,9 +57,17 @@
     <string name="go_back">Go Back</string>
     <string name="reset">Reset</string>
     <string name="paw">Paw</string>
-    <string name="looks_a_little_empty_here_ntry_adding_some_pets">Looks a little empty here...\nTry adding some pets!</string>
+    <string name="looks_a_little_empty_here_ntry_adding_some_pets">Looks a little empty here…\nTry adding some pets!</string>
     <string name="add_pet_profile">Add pet profile</string>
     <string name="pet_profiles">Pet Profiles</string>
     <string name="back_button">Back button</string>
     <string name="pet_icon">Pet Icon</string>
+    <string name="profile">Profile</string>
+    <string name="enter_pet_name">Enter pet name</string>
+    <string name="species">Species</string>
+    <string name="age">Age</string>
+    <string name="pet_age">Pet age</string>
+    <string name="note">Note</string>
+    <string name="enter_a_note">Enter a note...</string>
+    <string name="delete_profile">Delete Profile</string>
 </resources>

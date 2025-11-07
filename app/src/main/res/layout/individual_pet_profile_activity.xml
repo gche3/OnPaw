@@ -26,7 +26,7 @@
             android:layout_height="100dp"
             android:layout_alignParentEnd="true"
             android:gravity="center"
-            android:text = "Profile"
+            android:text = "@string/profile"
             android:textSize="50sp"
             tools:ignore="RelativeOverlap" />
 
@@ -35,14 +35,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name: "
+        android:text="@string/name"
         android:textSize="24sp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints="Name of user"
-        android:hint="Enter pet name"
+        android:hint="@string/enter_pet_name"
         android:textSize="20sp"
         android:inputType="text"
         tools:ignore="VisualLintTextFieldSize" />
@@ -50,7 +50,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Species: "
+        android:text="@string/species"
         android:textSize="24sp"
         android:paddingTop="16dp"/>
 
@@ -64,7 +64,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Age: "
+        android:text="@string/age"
         android:textSize="24sp"
         android:paddingTop="16dp"/>
 
@@ -72,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints="Phone number of user"
-        android:hint="Pet age"
+        android:hint="@string/pet_age"
         android:textSize="20sp"
         android:inputType="number"
         tools:ignore="VisualLintTextFieldSize" />
@@ -80,7 +80,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Note: "
+        android:text="@string/note"
         android:textSize="24sp"
         android:paddingTop="16dp"
         android:paddingBottom="5dp"/>
@@ -89,7 +89,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:autofillHints="Enter a note..."
-        android:hint="Enter a note..."
+        android:hint="@string/enter_a_note"
         android:padding="5dp"
         android:inputType="text|textMultiLine"
         android:gravity="top"
@@ -124,7 +124,7 @@
         android:layout_gravity="center"
         android:maxWidth="320dp"
         android:backgroundTint="@color/pastel_blue"
-        android:text="Delete Profile"
+        android:text="@string/delete_profile"
         android:textSize="20sp"/>
 
     <Button

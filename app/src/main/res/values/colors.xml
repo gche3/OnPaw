@@ -2,10 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="blue">#97B3AE</color>
-    <color name="green">#D2E0D3</color>
-    <color name="tan">#F0DDD6</color>
-    <color name="pink">#F2C3B9</color>
-    <color name="brown">#D6CBBF</color>
-    <color name="gray">#F0EEEA</color>
+    <color name="pastel-blue">#97B3AE</color>
+    <color name="pastel-green">#D2E0D3</color>
+    <color name="pastel-tan">#F0DDD6</color>
+    <color name="pastel-pink">#F2C3B9</color>
+    <color name="pastel-brown">#D6CBBF</color>
+    <color name="pastel-gray">#F0EEEA</color>
 </resources>

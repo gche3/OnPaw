@@ -56,4 +56,10 @@
     <string name="delete_account">Delete Account</string>
     <string name="go_back">Go Back</string>
     <string name="reset">Reset</string>
+    <string name="paw">Paw</string>
+    <string name="looks_a_little_empty_here_ntry_adding_some_pets">Looks a little empty here...\nTry adding some pets!</string>
+    <string name="add_pet_profile">Add pet profile</string>
+    <string name="pet_profiles">Pet Profiles</string>
+    <string name="back_button">Back button</string>
+    <string name="pet_icon">Pet Icon</string>
 </resources>

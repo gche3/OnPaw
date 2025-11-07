@@ -9,39 +9,40 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_alignParentStart="true"
-            android:gravity="center"
-            android:text = "@string/settings"
-            android:textSize="50sp"
-            tools:ignore="RelativeOverlap" />
+        android:layout_height="wrap_content"
+        android:paddingVertical="20dp">
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
             android:clickable="true"
-            android:src="@drawable/account_box_edit_outline"
+            android:src="@drawable/paw"
             android:contentDescription="@string/user_icon"
             android:focusable="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:text = "Profile"
+            android:textSize="50sp"
+            tools:ignore="RelativeOverlap" />
 
     </RelativeLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/name"
+        android:text="Name: "
         android:textSize="24sp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints="Name of user"
-        android:hint="@string/enter_your_name"
+        android:hint="Enter pet name"
         android:textSize="20sp"
         android:inputType="text"
         tools:ignore="VisualLintTextFieldSize" />
@@ -49,23 +50,21 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/email"
+        android:text="Species: "
         android:textSize="24sp"
         android:paddingTop="16dp"/>
 
-    <EditText
+
+    <Spinner
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autofillHints="Email of user"
-        android:hint="@string/enter_your_email"
-        android:textSize="20sp"
-        android:inputType="text"
-        tools:ignore="VisualLintTextFieldSize" />
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/pastel_gray"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/phone_number"
+        android:text="Age: "
         android:textSize="24sp"
         android:paddingTop="16dp"/>
 
@@ -73,34 +72,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints="Phone number of user"
-        android:hint="@string/enter_your_phone_number"
+        android:hint="Pet age"
         android:textSize="20sp"
-        android:inputType="phone"
+        android:inputType="number"
         tools:ignore="VisualLintTextFieldSize" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/home_address"
+        android:text="Note: "
         android:textSize="24sp"
         android:paddingTop="16dp"
         android:paddingBottom="5dp"/>
 
-    <SearchView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/pastel_gray"
-        android:queryHint="Address"/>
-
-    <View
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:autofillHints="Enter a note..."
+        android:hint="Enter a note..."
+        android:padding="5dp"
+        android:inputType="text|textMultiLine"
+        android:gravity="top"
+        android:layout_weight="1"
+        android:background="@color/pastel_gray"
+        />
+
+
 
     <Button
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="4dp"
         android:backgroundTint="@color/pastel_blue"
         android:text="@string/reset"
@@ -121,7 +124,7 @@
         android:layout_gravity="center"
         android:maxWidth="320dp"
         android:backgroundTint="@color/pastel_blue"
-        android:text="@string/delete_account"
+        android:text="Delete Profile"
         android:textSize="20sp"/>
 
     <Button

@@ -1,74 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:id="@+id/pet_profiles"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/pastel_brown"
     android:padding="32dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/pet_profiles_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:src="@drawable/arrow_left"
+        android:contentDescription="@string/back_button"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/pet_profiles_title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="15dp">
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@id/pet_profiles_back"
+        android:text="@string/pet_profiles"
+        android:textSize="30sp"
+        tools:ignore="RelativeOverlap" />
 
-        <ImageView
-            android:id="@+id/pet_profiles_back"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerInParent="true"
-            android:clickable="true"
-            android:src="@drawable/arrow_left"
-            android:contentDescription="@string/back_button"
-            android:focusable="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_centerInParent="true"
-            android:text = "@string/pet_profiles"
-            android:textSize="30sp"
-            tools:ignore="RelativeOverlap" />
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerInParent="true"
-            android:clickable="true"
-            android:src="@drawable/plus"
-            android:contentDescription="@string/add_pet_profile"
-            android:focusable="true" />
-
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/pet_profiles_add"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/pet_profiles_back"
+        android:clickable="true"
+        android:src="@drawable/plus"
+        android:contentDescription="@string/add_pet_profile"
+        android:focusable="true" />
 
     <View
+        android:id="@+id/divider"
+        android:layout_below="@id/pet_profiles_back"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/black" />
 
+
     <TextView
+        android:id="@+id/pet_profile_empty_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_alignTop="@id/divider"
         android:paddingTop="50dp"
         android:paddingBottom="20dp"
         android:text="@string/looks_a_little_empty_here_ntry_adding_some_pets"/>
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/pet_profile_empty_text"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
         android:contentDescription="@string/paw"
         android:src="@drawable/paw"
         android:layout_gravity="center"/>
 
 
 
-
-
-
-
-
-
-</LinearLayout>
+</RelativeLayout>

@@ -39,6 +39,7 @@
         android:textSize="24sp" />
 
     <EditText
+        android:id="@+id/pet_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints="Name of user"
@@ -54,12 +55,23 @@
         android:textSize="24sp"
         android:paddingTop="16dp"/>
 
-
-    <Spinner
+    <EditText
+        android:id="@+id/pet_species"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/pastel_gray"/>
+        android:layout_height="wrap_content"
+        android:autofillHints="Name of user"
+        android:hint="@string/enter_pet_species"
+        android:textSize="20sp"
+        android:inputType="text"
+        tools:ignore="VisualLintTextFieldSize" />
+
+
+<!--    <Spinner-->
+<!--        android:id="@+id/pet_species"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:background="@color/pastel_gray"/>-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -69,6 +81,7 @@
         android:paddingTop="16dp"/>
 
     <EditText
+        android:id="@+id/pet_age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints="Phone number of user"
@@ -86,6 +99,7 @@
         android:paddingBottom="5dp"/>
 
     <EditText
+        android:id="@+id/pet_note"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:autofillHints="Enter a note..."
@@ -100,6 +114,7 @@
 
 
     <Button
+        android:id="@+id/pet_reset_button"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -110,6 +125,7 @@
         android:textSize="20sp"/>
 
     <Button
+        android:id="@+id/pet_save_button"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -119,6 +135,7 @@
         android:textSize="20sp"/>
 
     <Button
+        android:id="@+id/pet_delete_button"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -128,6 +145,7 @@
         android:textSize="20sp"/>
 
     <Button
+        android:id="@+id/pet_go_back_button"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

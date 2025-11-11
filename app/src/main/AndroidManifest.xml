@@ -21,6 +21,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".PetProfilesActivity"
+            android:exported="true"
+            android:theme="@style/Theme.OnPaw">
+        </activity>
+        <activity
+            android:name=".IndividualPetActivity"
+            android:exported="true"
+            android:theme="@style/Theme.OnPaw">
+        </activity>
     </application>
 
 </manifest>

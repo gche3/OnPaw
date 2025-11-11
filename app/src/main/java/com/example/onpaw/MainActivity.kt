@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null)
                 .setAnchorView(R.id.fab).show()
 
-            val intent: Intent = Intent(this, PetProfilesActivity::class.java)
+            val intent = Intent(this, PetProfilesActivity::class.java)
             startActivity(intent)
         }
     }

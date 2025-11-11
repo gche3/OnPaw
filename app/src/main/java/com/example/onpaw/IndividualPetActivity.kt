@@ -34,13 +34,40 @@ class IndividualPetActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.pet_save_button).setOnClickListener {
-            profile.name = findViewById<EditText>(R.id.pet_name).text.toString()
-            profile.species = findViewById<EditText>(R.id.pet_species).text.toString()
-            profile.age = findViewById<EditText>(R.id.pet_age).text.toString().toIntOrNull() ?: 0
-            profile.note = findViewById<EditText>(R.id.pet_note).text.toString()
+            val nameField = findViewById<EditText>(R.id.pet_name)
+            val speciesField = findViewById<EditText>(R.id.pet_species)
+            val ageField = findViewById<EditText>(R.id.pet_age)
+            val noteField = findViewById<EditText>(R.id.pet_note)
+
+            val name = nameField.text.toString().trim()
+            val species = speciesField.text.toString().trim()
+            val age = ageField.text.toString().toIntOrNull() ?: 0
+            val note = noteField.text.toString().trim()
+
+            when {
+                name.isEmpty() -> {
+                    nameField.error = "Pet name cannot be empty"
+                }
+                species.isEmpty() -> {
+                    speciesField.error = "Species cannot be empty"
+                }
+                else -> {
+                    profile.name = name
+                    profile.species = species
+                    profile.age = age
+                    profile.note = note
+
+                    AlertDialog.Builder(this)
+                        .setTitle("Saved")
+                        .setMessage("Pet profile updated successfully.")
+                        .setPositiveButton("OK") { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                        .show()
+                }
+            }
         }
 
-        // Delete button
         findViewById<Button>(R.id.pet_delete_button).setOnClickListener {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Confirm Deletion")

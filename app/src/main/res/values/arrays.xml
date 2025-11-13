@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="species_options">
+        <item>Dog</item>
+        <item>Cat</item>
+        <item>Rabbit</item>
+        <item>Bird</item>
+        <item>Other</item>
+    </string-array>
+
+    <!-- demo; replace with your real pets later or populate dynamically -->
+    <string-array name="pet_options">
+        <item>—</item>
+        <item>Rover</item>
+        <item>Luna</item>
+    </string-array>
+</resources>

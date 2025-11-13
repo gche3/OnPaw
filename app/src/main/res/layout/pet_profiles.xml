@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pet_profiles"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pastel_brown"
+    android:padding="32dp">
+
+    <ImageView
+        android:id="@+id/pet_profiles_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:src="@drawable/arrow_left"
+        android:contentDescription="@string/back_button"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/pet_profiles_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@id/pet_profiles_back"
+        android:text="@string/pet_profiles"
+        android:textSize="30sp"
+        tools:ignore="RelativeOverlap" />
+
+    <ImageView
+        android:id="@+id/pet_profiles_add"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/pet_profiles_back"
+        android:clickable="true"
+        android:src="@drawable/plus"
+        android:contentDescription="@string/add_pet_profile"
+        android:focusable="true" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_below="@id/pet_profiles_back"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
+    <ScrollView
+        android:id="@+id/pet_scroll"
+        android:layout_below="@id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/pet_list_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+</RelativeLayout>

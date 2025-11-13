@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FindSittersActivity">
+
+    <!-- OpenStreetMap View -->
+    <FrameLayout
+        android:id="@+id/map_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@id/bottom_card"
+        android:layout_alignParentTop="true">
+
+        <org.osmdroid.views.MapView
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Back Button -->
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/arrow_left"
+            android:background="@color/pastel_tan"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/back_button"
+            android:elevation="4dp" />
+    </FrameLayout>
+
+    <!-- Bottom Card with Sitter Info -->
+    <LinearLayout
+        android:id="@+id/bottom_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="@color/pastel_brown"
+        android:elevation="8dp"
+        android:padding="16dp">
+
+        <!-- Header: Sitter coming / ETA -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/sitter_on_the_way"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/eta_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/two_min_away"
+                android:textSize="18sp"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <!-- Destination -->
+        <TextView
+            android:id="@+id/destination_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/destination_petcare"
+            android:textSize="16sp"
+            android:textColor="@android:color/darker_gray"
+            android:paddingBottom="16dp" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Sitter Info Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="16dp">
+
+            <!-- Profile Icon -->
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/account"
+                android:padding="4dp"
+                android:background="@color/pastel_gray"
+                android:contentDescription="@string/sitter_profile" />
+
+            <!-- Name -->
+            <TextView
+                android:id="@+id/sitter_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/john_smith"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp" />
+
+            <!-- Cancel Button -->
+            <ImageView
+                android:id="@+id/btn_cancel"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@android:drawable/ic_delete"
+                android:padding="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="@string/cancel" />
+
+            <!-- Call Button -->
+            <ImageView
+                android:id="@+id/btn_call"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@android:drawable/stat_sys_phone_call"
+                android:padding="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="@string/call_sitter" />
+        </LinearLayout>
+
+        <!-- Send Message -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/pastel_gray"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"
+            style="?android:attr/borderlessButtonStyle">
+
+            <EditText
+                android:id="@+id/message_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/send_message"
+                android:background="@android:color/transparent"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:inputType="text"
+                android:autofillHints="message" />
+
+            <ImageView
+                android:id="@+id/btn_send_message"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/ic_menu_send"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="@string/send" />
+        </LinearLayout>
+
+        <!-- Quick Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_pet_safe"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:text="@string/is_pet_safe"
+                android:textSize="14sp"
+                android:backgroundTint="@color/pastel_blue"
+                android:textColor="@color/black"
+                style="?android:attr/buttonBarButtonStyle" />
+
+            <Button
+                android:id="@+id/btn_back_door"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:text="@string/use_back_door"
+                android:textSize="14sp"
+                android:backgroundTint="@color/pastel_blue"
+                android:textColor="@color/black"
+                style="?android:attr/buttonBarButtonStyle" />
+
+            <Button
+                android:id="@+id/btn_photo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:text="@string/photo_of_pet"
+                android:textSize="14sp"
+                android:backgroundTint="@color/pastel_blue"
+                android:textColor="@color/black"
+                style="?android:attr/buttonBarButtonStyle" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
+

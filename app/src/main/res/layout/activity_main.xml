@@ -1,33 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:background="@color/pastel_brown"
+    android:padding="32dp"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <!-- Header Section -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="32dp">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/paw"
+            android:contentDescription="@string/app_logo" />
 
-    </com.google.android.material.appbar.AppBarLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/app_name"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
 
-    <include layout="@layout/content_main" />
+        <ImageView
+            android:id="@+id/settings_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/account_box_edit_outline"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/settings" />
+    </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+    <!-- Welcome Text -->
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:text="@string/welcome_message"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:paddingBottom="48dp" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <!-- Spacer -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Main Navigation Buttons -->
+    <Button
+        android:id="@+id/btn_pet_profiles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/pastel_blue"
+        android:text="@string/pet_profiles"
+        android:textSize="24sp"
+        android:paddingVertical="20dp" />
+
+    <Button
+        android:id="@+id/btn_find_sitters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/pastel_blue"
+        android:text="@string/find_pet_sitters"
+        android:textSize="24sp"
+        android:paddingVertical="20dp" />
+
+    <Button
+        android:id="@+id/btn_my_bookings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/pastel_blue"
+        android:text="@string/my_bookings"
+        android:textSize="24sp"
+        android:paddingVertical="20dp" />
+
+    <!-- Spacer -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

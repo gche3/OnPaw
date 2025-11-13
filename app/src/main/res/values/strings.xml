@@ -43,4 +43,50 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="settings">Settings</string>
+    <string name="user_icon">User Icon</string>
+    <string name="name">Name:</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="email">Email:</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="phone_number">Phone Number:</string>
+    <string name="enter_your_phone_number">Enter your phone number</string>
+    <string name="home_address">Home Address:</string>
+    <string name="save">Save</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="go_back">Go Back</string>
+    <string name="reset">Reset</string>
+    <string name="paw">Paw</string>
+    <string name="looks_a_little_empty_here_ntry_adding_some_pets">Looks a little empty here…\nTry adding some pets!</string>
+    <string name="add_pet_profile">Add pet profile</string>
+    <string name="pet_profiles">Pet Profiles</string>
+    <string name="back_button">Back button</string>
+    <string name="pet_icon">Pet Icon</string>
+    <string name="profile">Profile</string>
+    <string name="enter_pet_name">Enter pet name</string>
+    <string name="species">Species:</string>
+    <string name="age">Age (years):</string>
+    <string name="pet_age">Pet age</string>
+    <string name="note">Note:</string>
+    <string name="enter_a_note">Enter a note…</string>
+    <string name="delete_profile">Delete Profile</string>
+    <string name="enter_pet_species">Enter pet species</string>
+    <string name="app_logo">App Logo</string>
+    <string name="welcome_message">Welcome to OnPaw!\nYour trusted pet sitting companion</string>
+    <string name="find_pet_sitters">Find Pet Sitters</string>
+    <string name="my_bookings">My Bookings</string>
+    <string name="map_placeholder">[Map View - Coming Soon]</string>
+    <string name="sitter_on_the_way">Sitter on the way</string>
+    <string name="two_min_away">2 min away</string>
+    <string name="destination_petcare">Destination: Your Home</string>
+    <string name="sitter_profile">Sitter Profile</string>
+    <string name="john_smith">John Smith</string>
+    <string name="cancel">Cancel</string>
+    <string name="call_sitter">Call Sitter</string>
+    <string name="send_message">Send message</string>
+    <string name="send">Send</string>
+    <string name="is_pet_safe">Is pet safe?</string>
+    <string name="use_back_door">Use back door</string>
+    <string name="photo_of_pet">Photo of pet</string>
+    <string name="finding_your_sitter">Finding your Sitter</string>
 </resources>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pastel_brown"
+    android:padding="32dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:gravity="center"
+            android:text = "@string/settings"
+            android:textSize="50sp"
+            tools:ignore="RelativeOverlap" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentEnd="true"
+            android:clickable="true"
+            android:src="@drawable/account_box_edit_outline"
+            android:contentDescription="@string/user_icon"
+            android:focusable="true" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/settings_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="Name of user"
+        android:hint="@string/enter_your_name"
+        android:textSize="20sp"
+        android:inputType="text"
+        tools:ignore="VisualLintTextFieldSize" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/email"
+        android:textSize="24sp"
+        android:paddingTop="16dp"/>
+
+    <EditText
+        android:id="@+id/settings_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="Email of user"
+        android:hint="@string/enter_your_email"
+        android:textSize="20sp"
+        android:inputType="textEmailAddress"
+        tools:ignore="VisualLintTextFieldSize" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/phone_number"
+        android:textSize="24sp"
+        android:paddingTop="16dp"/>
+
+    <EditText
+        android:id="@+id/settings_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="Phone number of user"
+        android:hint="@string/enter_your_phone_number"
+        android:inputType="phone"
+        android:textSize="20sp"
+        tools:ignore="VisualLintTextFieldSize" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/home_address"
+        android:textSize="24sp"
+        android:paddingTop="16dp"
+        android:paddingBottom="5dp"/>
+
+    <SearchView
+        android:id="@+id/settings_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/pastel_gray"
+        android:queryHint="Address"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/settings_reset"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="@color/pastel_blue"
+        android:text="@string/reset"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/settings_save"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="@color/pastel_blue"
+        android:text="@string/save"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/settings_delete"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:maxWidth="320dp"
+        android:backgroundTint="@color/pastel_blue"
+        android:text="@string/delete_account"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/settings_back"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/cardview_dark_background"
+        android:layout_marginVertical="20dp"
+        android:text="@string/go_back"
+        android:paddingVertical="20dp"
+        android:textSize="20sp"/>
+
+
+
+
+
+
+
+
+</LinearLayout>

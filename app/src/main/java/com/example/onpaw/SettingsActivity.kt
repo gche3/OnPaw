@@ -8,19 +8,6 @@ import android.widget.SearchView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
-class User {
-    var name: String = "John"
-    var email: String = "johnsmith@gmail.com"
-    var phone: String = "123-456-7890"
-    var address: String = ""
-
-    fun delete() {
-        name = ""; email = ""; phone = ""; address = ""
-    }
-}
-
-val user = User()
-
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

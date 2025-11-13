@@ -71,4 +71,22 @@
     <string name="enter_a_note">Enter a note…</string>
     <string name="delete_profile">Delete Profile</string>
     <string name="enter_pet_species">Enter pet species</string>
+    <string name="app_logo">App Logo</string>
+    <string name="welcome_message">Welcome to OnPaw!\nYour trusted pet sitting companion</string>
+    <string name="find_pet_sitters">Find Pet Sitters</string>
+    <string name="my_bookings">My Bookings</string>
+    <string name="map_placeholder">[Map View - Coming Soon]</string>
+    <string name="sitter_on_the_way">Sitter on the way</string>
+    <string name="two_min_away">2 min away</string>
+    <string name="destination_petcare">Destination: Your Home</string>
+    <string name="sitter_profile">Sitter Profile</string>
+    <string name="john_smith">John Smith</string>
+    <string name="cancel">Cancel</string>
+    <string name="call_sitter">Call Sitter</string>
+    <string name="send_message">Send message</string>
+    <string name="send">Send</string>
+    <string name="is_pet_safe">Is pet safe?</string>
+    <string name="use_back_door">Use back door</string>
+    <string name="photo_of_pet">Photo of pet</string>
+    <string name="finding_your_sitter">Finding your Sitter</string>
 </resources>

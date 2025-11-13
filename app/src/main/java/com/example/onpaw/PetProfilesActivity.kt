@@ -8,16 +8,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-class Pet(
-    var name: String = "",
-    var species: String = "",
-    var age: Int = 0,
-    var note: String = "",
-    var icon: Int = R.drawable.paw
-)
-
-var petList: MutableList<Pet> = mutableListOf()
-
 class PetProfilesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

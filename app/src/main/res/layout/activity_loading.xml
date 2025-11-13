@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/pastel_brown"
+    android:padding="32dp">
+
+    <!-- Animal Icons Row -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="32dp">
+
+        <!-- Rabbit -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🐰"
+            android:textSize="48sp"
+            android:layout_margin="8dp" />
+
+        <!-- Snake -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🐍"
+            android:textSize="48sp"
+            android:layout_margin="8dp" />
+
+        <!-- Cat -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🐱"
+            android:textSize="48sp"
+            android:layout_margin="8dp" />
+
+        <!-- Dog -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🐶"
+            android:textSize="48sp"
+            android:layout_margin="8dp" />
+
+        <!-- Turtle -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🐢"
+            android:textSize="48sp"
+            android:layout_margin="8dp" />
+    </LinearLayout>
+
+    <!-- Loading Text -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/finding_your_sitter"
+        android:textSize="28sp"
+        android:textColor="@color/black"
+        android:gravity="center" />
+
+    <!-- Progress Indicator (Optional) -->
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:indeterminateTint="@color/pastel_blue" />
+
+</LinearLayout>
+

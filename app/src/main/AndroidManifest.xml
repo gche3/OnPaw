@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- Permissions for OpenStreetMap -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -33,6 +38,16 @@
         </activity>
         <activity
             android:name=".SettingsActivity"
+            android:exported="true"
+            android:theme="@style/Theme.OnPaw">
+        </activity>
+        <activity
+            android:name=".FindSittersActivity"
+            android:exported="true"
+            android:theme="@style/Theme.OnPaw">
+        </activity>
+        <activity
+            android:name=".LoadingActivity"
             android:exported="true"
             android:theme="@style/Theme.OnPaw">
         </activity>

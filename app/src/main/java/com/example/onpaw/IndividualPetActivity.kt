@@ -88,8 +88,13 @@ class IndividualPetActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.pet_go_back_button).setOnClickListener {
-            val intent = Intent(this, PetProfilesActivity::class.java)
-            startActivity(intent)
+            if (profile.name == "") {
+                petList.removeAt(profileIdx)
+                finish()
+            } else {
+                val intent = Intent(this, PetProfilesActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 }

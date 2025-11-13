@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         // Find Sitters button
         findViewById<Button>(R.id.btn_find_sitters).setOnClickListener {
-            val intent = Intent(this, LoadingActivity::class.java)
+            val intent = Intent(this, FindPetCareActivity::class.java)
             startActivity(intent)
         }
 

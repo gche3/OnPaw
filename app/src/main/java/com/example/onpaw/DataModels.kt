@@ -127,6 +127,10 @@ val petSitters: MutableList<PetSitter> = mutableListOf(
     )
 )
 
+object ChatStore {
+    val messageHistory = mutableMapOf<String, MutableList<ChatActivity.Message>>()
+}
+
 // Function to get the closest pet sitters
 fun getClosestPetSitters(userLat: Double, userLon: Double, limit: Int = 5): List<PetSitter> {
     return petSitters.sortedBy { sitter ->

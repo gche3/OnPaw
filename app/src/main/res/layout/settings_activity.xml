@@ -89,12 +89,13 @@
         android:paddingTop="16dp"
         android:paddingBottom="5dp"/>
 
-    <SearchView
+    <EditText
         android:id="@+id/settings_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/pastel_gray"
-        android:queryHint="Address"/>
+        android:textSize="20sp"
+        android:autofillHints="Address of user"
+        android:hint="@string/enter_your_address"/>
 
     <View
         android:layout_width="match_parent"

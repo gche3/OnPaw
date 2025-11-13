@@ -127,7 +127,7 @@
                             android:layout_width="28dp"
                             android:layout_height="28dp"
                             android:src="@drawable/pet_drop_off"
-                            android:tint="@color/text_hint" />
+                            app:tint="@color/text_hint" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -160,7 +160,7 @@
                             android:layout_width="28dp"
                             android:layout_height="28dp"
                             android:src="@drawable/on_site_checkup"
-                            android:tint="@color/text_hint" />
+                            app:tint="@color/text_hint" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -226,7 +226,7 @@
                             android:layout_width="28dp"
                             android:layout_height="28dp"
                             android:src="@drawable/emergency_transport"
-                            android:tint="@color/text_hint" />
+                            app:tint="@color/text_hint" />
 
                         <TextView
                             android:layout_width="wrap_content"

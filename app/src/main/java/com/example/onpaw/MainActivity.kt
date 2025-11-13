@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         val btnFindPetCare = findViewById<Button>(R.id.btnFindPetCare)
         val btnEmergencyPetCare = findViewById<Button>(R.id.btnEmergencyPetCare)
+        val btnMessage = findViewById<Button>(R.id.btnMessage)
 
         btnFindPetCare.setOnClickListener {
             val intent = Intent(this, FindPetCareActivity::class.java)
@@ -21,6 +22,10 @@ class MainActivity : AppCompatActivity() {
 
         btnEmergencyPetCare.setOnClickListener {
             val intent = Intent(this, EmergencyFindPetCareActivity::class.java)
+            startActivity(intent)
+        }
+        btnMessage.setOnClickListener {
+            val intent = Intent(this, ChatActivity::class.java)
             startActivity(intent)
         }
     }

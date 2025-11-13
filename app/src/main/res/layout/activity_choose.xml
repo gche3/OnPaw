@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFE6DC"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp">
+
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OnPaw"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_marginBottom="40dp" />
+
+    <Button
+        android:id="@+id/btnOwner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I am a Pet Owner"
+        android:backgroundTint="#FF7A59"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/btnSitter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I am a Pet Sitter"
+        android:backgroundTint="#FFD369"
+        android:textColor="#333333"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/btnEmergency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I Have an Emergency!"
+        android:backgroundTint="#FFB5B5"
+        android:textColor="#333333" />
+
+</LinearLayout>

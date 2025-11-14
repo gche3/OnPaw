@@ -93,4 +93,15 @@
     <string name="additional_notes_optional">Additional Notes (Optional)</string>
     <string name="notes_placeholder">e.g., Buddy has been coughing for an hour and seems restless.</string>
     <string name="request_emergency_care">Request Emergency Care</string>
+    <string name="don_t_have_an_account_sign_up_here"><u>Don\'t have an account? Sign up here!</u></string>
+    <string name="already_have_an_account_log_in_here"><u>Already have an account? Log in here!</u></string>
+    <string name="onpaw">OnPaw</string>
+    <string name="display_name">Display Name</string>
+    <string name="enter_a_display_name">Enter a display name</string>
+    <string name="password">Password</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="re_enter_your_password">Re-enter your password</string>
+    <string name="create_account">Create Account</string>
+    <string name="login">Login</string>
 </resources>

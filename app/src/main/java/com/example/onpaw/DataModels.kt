@@ -16,15 +16,20 @@ data class User(
     var phone: String = "123-456-7890",
     var address: String = "Urbana, IL",
     var latitude: Double = 40.1020,  // ISR at UIUC coordinates
-    var longitude: Double = -88.2282
+    var longitude: Double = -88.2282,
+    var password: String = "",
+    var isLoggedIn: Boolean = false
 ) {
     fun delete() {
         name = ""
         email = ""
         phone = ""
         address = ""
+        password = ""
+        isLoggedIn = false
     }
 }
+
 
 // Pet Sitter data model
 data class PetSitter(

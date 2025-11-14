@@ -20,13 +20,13 @@ class HomeActivity : AppCompatActivity() {
 
         // Pet Owner button
         findViewById<Button>(R.id.btn_pet_owner).setOnClickListener {
-            val intent = Intent(this, EmergencyFindPetCareActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 
         // Emergency button
         findViewById<Button>(R.id.btn_emergency).setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, EmergencyFindPetCareActivity::class.java)
             startActivity(intent)
         }
     }

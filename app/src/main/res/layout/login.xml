@@ -8,6 +8,18 @@
     android:padding="32dp">
 
     <!-- App title -->
+    <ImageView
+        android:id="@+id/login_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_alignParentStart="true"
+        android:clickable="true"
+        android:src="@drawable/arrow_left"
+        android:contentDescription="@string/back_button"
+        android:focusable="true" />
+
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,7 @@ class SignupActivity : AppCompatActivity() {
         val confirmPasswordInput = findViewById<EditText>(R.id.etConfirmPassword)
         val createAccountButton = findViewById<Button>(R.id.btnCreateAccount)
         val loginHereText = findViewById<TextView>(R.id.tvLoginHere)
+        val backButton = findViewById<ImageView>(R.id.signup_back)
 
         createAccountButton.setOnClickListener {
             val email = emailInput.text.toString().trim()
@@ -64,16 +66,18 @@ class SignupActivity : AppCompatActivity() {
             Toast.makeText(this, "Account created!", Toast.LENGTH_SHORT).show()
 
             // Go to HomeActivity as the main screen
-            val intent = Intent(this, HomeActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            finish()
         }
 
         // "Already have an account? Log in here"
         loginHereText.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
-            finish()
+        }
+
+        backButton.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -3,6 +3,7 @@ package com.example.onpaw
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -18,7 +19,6 @@ class LoginActivity : AppCompatActivity() {
         if (user.isLoggedIn) {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
-            finish()
             return
         }
 
@@ -27,6 +27,7 @@ class LoginActivity : AppCompatActivity() {
         val passwordInput = findViewById<EditText>(R.id.etPassword)
         val loginButton = findViewById<Button>(R.id.btnLogin)
         val signUpText = findViewById<TextView>(R.id.tvSignUp)
+        val backButton = findViewById<ImageView>(R.id.login_back)
 
         // Login button logic
         loginButton.setOnClickListener {
@@ -58,7 +59,6 @@ class LoginActivity : AppCompatActivity() {
                 val intent = Intent(this, HomeActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
-                finish()
             } else {
                 Toast.makeText(this, "Incorrect email or password", Toast.LENGTH_SHORT).show()
             }
@@ -68,7 +68,11 @@ class LoginActivity : AppCompatActivity() {
         signUpText.setOnClickListener {
             val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
-            finish()
+        }
+
+        backButton.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }
     }
 }

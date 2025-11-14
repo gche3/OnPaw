@@ -64,6 +64,11 @@ class SettingsActivity : AppCompatActivity() {
             }
         }
 
+        findViewById<Button>(R.id.settings_logout).setOnClickListener {
+            // logout properly later
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
 
         findViewById<Button>(R.id.settings_delete).setOnClickListener {
             val builder = AlertDialog.Builder(this)

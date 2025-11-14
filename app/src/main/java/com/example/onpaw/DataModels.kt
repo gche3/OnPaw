@@ -14,7 +14,7 @@ data class User(
     var name: String = "John",
     var email: String = "johnsmith@gmail.com",
     var phone: String = "123-456-7890",
-    var address: String = "Urbana, IL",
+    var address: String = "",
     var latitude: Double = 40.1020,  // ISR at UIUC coordinates
     var longitude: Double = -88.2282,
     var password: String = "",
@@ -29,6 +29,8 @@ data class User(
         isLoggedIn = false
     }
 }
+
+val userList: MutableList<User> = mutableListOf()
 
 
 // Pet Sitter data model

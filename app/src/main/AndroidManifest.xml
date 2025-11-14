@@ -18,7 +18,7 @@
 
         <!-- LOGIN PAGE is now the launcher screen -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".HomeActivity"
             android:exported="true"
             android:theme="@style/Theme.OnPaw">
             <intent-filter>
@@ -34,7 +34,7 @@
             android:theme="@style/Theme.OnPaw" />
 
         <activity
-            android:name=".HomeActivity"
+            android:name=".LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.OnPaw">
         </activity>

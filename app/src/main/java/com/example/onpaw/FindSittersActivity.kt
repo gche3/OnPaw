@@ -203,8 +203,7 @@ class FindSittersActivity : AppCompatActivity() {
         builder.setPositiveButton("Yes") { dialog, _ ->
             Toast.makeText(this, "Booking cancelled", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            finish()
         }
 
         builder.setNegativeButton("No") { dialog, _ ->

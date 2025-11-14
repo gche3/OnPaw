@@ -1,5 +1,6 @@
 package com.example.onpaw
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.view.Menu
@@ -141,11 +142,8 @@ class EmergencyFindPetCareActivity : AppCompatActivity() {
                 .setTitle(getString(R.string.request_emergency_care))
                 .setMessage(message)
                 .setPositiveButton("Confirm") { _, _ ->
-                    Toast.makeText(
-                        this,
-                        "Emergency care request sent (mock)!",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    val intent = Intent(this, LoadingActivity::class.java)
+                    startActivity(intent)
                 }
                 .setNegativeButton("Cancel", null)
                 .show()

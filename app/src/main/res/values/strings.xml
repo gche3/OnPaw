@@ -107,4 +107,5 @@
     <string name="i_am_a_pet_owner">I am a Pet Owner</string>
     <string name="i_am_a_pet_sitter">I am a Pet Sitter</string>
     <string name="i_have_an_emergency">I have an emergency!</string>
+    <string name="log_out">Log Out</string>
 </resources>

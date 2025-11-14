@@ -12,7 +12,8 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OnPaw"
+        android:autofillHints="name"
+        android:text="@string/onpaw"
         android:textSize="36sp"
         android:textStyle="bold"
         android:textColor="#333333"
@@ -26,7 +27,7 @@
         android:id="@+id/tvEmailLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
+        android:text="@string/email"
         android:textSize="16sp"
         android:textColor="#333333"
         app:layout_constraintTop_toBottomOf="@id/tvTitle"
@@ -37,22 +38,20 @@
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:background="@drawable/rounded_input"
-        android:padding="12dp"
-        android:hint="Enter your email"
+        android:layout_height="wrap_content"
+        android:autofillHints="emailAddress"
+        android:hint="@string/enter_your_email"
         android:inputType="textEmailAddress"
         app:layout_constraintTop_toBottomOf="@id/tvEmailLabel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Password label -->
     <TextView
         android:id="@+id/tvPasswordLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:text="@string/password"
         android:textSize="16sp"
         android:textColor="#333333"
         app:layout_constraintTop_toBottomOf="@id/etEmail"
@@ -63,22 +62,21 @@
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:background="@drawable/rounded_input"
-        android:padding="12dp"
-        android:hint="Enter your password"
+        android:layout_height="wrap_content"
+        android:autofillHints="password"
+        android:hint="@string/enter_your_password"
         android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@id/tvPasswordLabel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Login button -->
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/login"
+        android:textSize="18sp"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:backgroundTint="#FF7A59"
@@ -93,11 +91,13 @@
         android:id="@+id/tvSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Don't have an account? Sign up here!"
-        android:textColor="#000000"
+        android:focusable="true"
+        android:text="@string/don_t_have_an_account_sign_up_here"
+        android:textColor="#00AAFF"
         android:textSize="14sp"
         android:paddingTop="16dp"
         android:textStyle="italic"
+        android:clickable="true"
         app:layout_constraintTop_toBottomOf="@id/btnLogin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

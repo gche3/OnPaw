@@ -12,7 +12,7 @@
         android:id="@+id/tvTitleSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OnPaw"
+        android:text="@string/onpaw"
         android:textSize="36sp"
         android:textStyle="bold"
         android:textColor="#333333"
@@ -26,7 +26,7 @@
         android:id="@+id/tvEmailLabelSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
+        android:text="@string/email"
         android:textSize="16sp"
         android:textColor="#333333"
         app:layout_constraintTop_toBottomOf="@id/tvTitleSignup"
@@ -37,22 +37,20 @@
     <EditText
         android:id="@+id/etEmailSignup"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:background="@drawable/rounded_input"
-        android:padding="12dp"
-        android:hint="Enter your email"
+        android:layout_height="wrap_content"
+        android:autofillHints="emailAddress"
+        android:hint="@string/enter_your_email"
         android:inputType="textEmailAddress"
         app:layout_constraintTop_toBottomOf="@id/tvEmailLabelSignup"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Display name label -->
     <TextView
         android:id="@+id/tvDisplayNameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Display Name"
+        android:text="@string/display_name"
         android:textSize="16sp"
         android:textColor="#333333"
         app:layout_constraintTop_toBottomOf="@id/etEmailSignup"
@@ -63,21 +61,20 @@
     <EditText
         android:id="@+id/etDisplayName"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:background="@drawable/rounded_input"
-        android:padding="12dp"
-        android:hint="Enter a display name"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:autofillHints="name"
+        android:hint="@string/enter_a_display_name"
         app:layout_constraintTop_toBottomOf="@id/tvDisplayNameLabel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Password label -->
     <TextView
         android:id="@+id/tvPasswordLabelSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:text="@string/password"
         android:textSize="16sp"
         android:textColor="#333333"
         app:layout_constraintTop_toBottomOf="@id/etDisplayName"
@@ -88,22 +85,20 @@
     <EditText
         android:id="@+id/etPasswordSignup"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:background="@drawable/rounded_input"
-        android:padding="12dp"
-        android:hint="Enter your password"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_your_password"
         android:inputType="textPassword"
+        android:autofillHints="password"
         app:layout_constraintTop_toBottomOf="@id/tvPasswordLabelSignup"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Confirm password label -->
     <TextView
         android:id="@+id/tvConfirmPasswordLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Confirm Password"
+        android:text="@string/confirm_password"
         android:textSize="16sp"
         android:textColor="#333333"
         app:layout_constraintTop_toBottomOf="@id/etPasswordSignup"
@@ -114,28 +109,27 @@
     <EditText
         android:id="@+id/etConfirmPassword"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:background="@drawable/rounded_input"
-        android:padding="12dp"
-        android:hint="Re-enter your password"
+        android:layout_height="wrap_content"
+        android:autofillHints="password"
+        android:hint="@string/re_enter_your_password"
         android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@id/tvConfirmPasswordLabel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Create Account button -->
     <Button
         android:id="@+id/btnCreateAccount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Create Account"
+        android:text="@string/create_account"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:backgroundTint="#FF7A59"
         app:layout_constraintTop_toBottomOf="@id/etConfirmPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="18sp"
         android:layout_marginTop="32dp"
         android:layout_marginHorizontal="32dp"/>
 
@@ -144,12 +138,16 @@
         android:id="@+id/tvLoginHere"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already have an account? Log in here"
+        android:text="@string/already_have_an_account_log_in_here"
         android:textSize="14sp"
-        android:textColor="#333333"
+        android:textColor="#00AAFF"
+        android:textStyle="italic"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="24dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

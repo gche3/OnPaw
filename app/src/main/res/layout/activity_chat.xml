@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:elevation="2dp"
+        android:title="John Smith"
+        app:titleCentered="true" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMessages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroupQuick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        app:singleLine="true"
+        app:singleSelection="false"
+        app:chipSpacingHorizontal="8dp">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipQuickSafe"
+            style="@style/OnPaw.SymptomChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Is my pet safe?"
+            android:checkable="false" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipQuickEta"
+            style="@style/OnPaw.SymptomChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What's your ETA?"
+            android:checkable="false" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@color/white"
+        android:elevation="4dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/OnPaw.LightField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            app:boxBackgroundMode="outline">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Send message"
+                android:maxLines="3"
+                android:inputType="textMultiLine" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSend"
+            style="@style/OnPaw.PrimaryCTA"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:text="Send"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

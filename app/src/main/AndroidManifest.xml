@@ -15,15 +15,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OnPaw">
+
+        <!-- LOGIN PAGE is now the launcher screen -->
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeActivity"
             android:exported="true"
             android:theme="@style/Theme.OnPaw">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <!-- MainActivity: NOT the launcher anymore -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.OnPaw" />
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.OnPaw">
+        </activity>
+
+        <activity
+            android:name=".SignupActivity"
+            android:exported="true"
+            android:theme="@style/Theme.OnPaw">
         </activity>
 
         <activity
@@ -31,26 +50,49 @@
             android:exported="true"
             android:theme="@style/Theme.OnPaw">
         </activity>
+
         <activity
             android:name=".IndividualPetActivity"
             android:exported="true"
             android:theme="@style/Theme.OnPaw">
         </activity>
+
         <activity
             android:name=".SettingsActivity"
             android:exported="true"
             android:theme="@style/Theme.OnPaw">
         </activity>
+
         <activity
             android:name=".FindSittersActivity"
             android:exported="true"
             android:theme="@style/Theme.OnPaw">
         </activity>
+
         <activity
             android:name=".LoadingActivity"
             android:exported="true"
             android:theme="@style/Theme.OnPaw">
         </activity>
+
+        <!-- Normal Find Pet Care screen -->
+        <activity
+            android:name=".FindPetCareActivity"
+            android:exported="false"
+            android:theme="@style/Theme.OnPaw" />
+
+        <!-- Emergency Find Pet Care screen -->
+        <activity
+            android:name=".EmergencyFindPetCareActivity"
+            android:exported="false"
+            android:label="@string/title_activity_emergency_find_pet_care"
+            android:theme="@style/Theme.OnPaw" />
+
+        <!-- Chat screen -->
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

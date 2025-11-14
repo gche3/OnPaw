@@ -8,4 +8,6 @@
     <color name="pastel_pink">#F2C3B9</color>
     <color name="pastel_brown">#D6CBBF</color>
     <color name="pastel_gray">#F0EEEA</color>
+    <color name="text_primary">#222222</color>
+    <color name="text_hint">#7A7A7A</color>
 </resources>

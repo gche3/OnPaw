@@ -9,15 +9,7 @@
     tools:context=".MainActivity">
 
     <!-- Spacer -->
-    <ImageView
-        android:id="@+id/settings_icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/account_box_edit_outline"
-        android:clickable="true"
-        android:focusable="true"
-        android:layout_gravity="right"
-        android:contentDescription="@string/settings" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -55,44 +47,35 @@
             android:contentDescription="@string/app_logo" />
     </LinearLayout>
 
-    <!-- Welcome Text -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/welcome_message"
-        android:textSize="24sp"
-        android:gravity="center"
-        android:paddingBottom="48dp" />
-
 
     <!-- Main Navigation Buttons -->
     <Button
-        android:id="@+id/btn_pet_profiles"
+        android:id="@+id/btn_pet_owner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/pastel_blue"
-        android:text="@string/pet_profiles"
+        android:text="@string/i_am_a_pet_owner"
         android:textSize="24sp"
         android:paddingVertical="20dp" />
 
     <Button
-        android:id="@+id/btn_find_sitters"
+        android:id="@+id/btn_pet_sitter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/pastel_blue"
-        android:text="@string/find_pet_sitters"
+        android:text="@string/i_am_a_pet_sitter"
         android:textSize="24sp"
         android:paddingVertical="20dp" />
 
     <Button
-        android:id="@+id/btn_my_bookings"
+        android:id="@+id/btn_emergency"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/pastel_blue"
-        android:text="@string/my_bookings"
+        android:text="@string/i_have_an_emergency"
         android:textSize="24sp"
         android:paddingVertical="20dp" />
 

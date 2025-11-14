@@ -61,24 +61,37 @@ class FindSittersActivity : AppCompatActivity() {
             val message = messageInput.text.toString().trim()
             
             if (message.isNotEmpty()) {
-                Toast.makeText(this, "Message sent: $message", Toast.LENGTH_SHORT).show()
-                messageInput.text.clear()
+                val intent = Intent(this, ChatActivity::class.java)
+                intent.putExtra("sitterName", currentSitter?.name)
+                intent.putExtra("messageFromMap", message)
+                startActivity(intent)
             } else {
-                Toast.makeText(this, "Please enter a message", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, ChatActivity::class.java)
+                intent.putExtra("sitterName", currentSitter?.name)
+                startActivity(intent)
             }
         }
 
         // Quick action buttons (placeholders)
         findViewById<Button>(R.id.btn_pet_safe).setOnClickListener {
-            Toast.makeText(this, "Is pet safe?", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ChatActivity::class.java)
+            intent.putExtra("sitterName", currentSitter?.name)
+            intent.putExtra("messageFromMap", "Is my pet safe?")
+            startActivity(intent)
         }
 
         findViewById<Button>(R.id.btn_back_door).setOnClickListener {
-            Toast.makeText(this, "Use back door", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ChatActivity::class.java)
+            intent.putExtra("sitterName", currentSitter?.name)
+            intent.putExtra("messageFromMap", "Use back door")
+            startActivity(intent)
         }
 
         findViewById<Button>(R.id.btn_photo).setOnClickListener {
-            Toast.makeText(this, "Photo of pet requested", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ChatActivity::class.java)
+            intent.putExtra("sitterName", currentSitter?.name)
+            intent.putExtra("messageFromMap", "Photo of pet requested")
+            startActivity(intent)
         }
     }
 
@@ -190,7 +203,7 @@ class FindSittersActivity : AppCompatActivity() {
         builder.setPositiveButton("Yes") { dialog, _ ->
             Toast.makeText(this, "Booking cancelled", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
-            finish() // Return to home screen
+            finish()
         }
 
         builder.setNegativeButton("No") { dialog, _ ->

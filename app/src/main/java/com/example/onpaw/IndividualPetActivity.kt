@@ -14,12 +14,12 @@ class IndividualPetActivity : AppCompatActivity() {
         setContentView(R.layout.individual_pet_profile_activity)
 
         val profileIdx = intent.getIntExtra("profileIdx", -1)
-        if (profileIdx !in petList.indices) {
+        if (profileIdx !in user.petList.indices) {
             finish()
             return
         }
 
-        val profile = petList[profileIdx]
+        val profile = user.petList[profileIdx]
 
         findViewById<EditText>(R.id.pet_name).setText(profile.name)
         findViewById<EditText>(R.id.pet_species).setText(profile.species)
@@ -66,6 +66,10 @@ class IndividualPetActivity : AppCompatActivity() {
                         .show()
                 }
             }
+            val idx = userList.indexOfFirst { it.email == user.email }
+            if (idx != -1) {
+                userList[idx].petList = user.petList
+            }
         }
 
         findViewById<Button>(R.id.pet_delete_button).setOnClickListener {
@@ -74,7 +78,7 @@ class IndividualPetActivity : AppCompatActivity() {
             builder.setMessage("Are you sure you want to delete this profile? This action cannot be undone.")
 
             builder.setPositiveButton("Yes") { dialog, _ ->
-                petList.removeAt(profileIdx)
+                user.petList.removeAt(profileIdx)
                 dialog.dismiss()
                 val intent = Intent(this, PetProfilesActivity::class.java)
                 startActivity(intent)
@@ -88,8 +92,13 @@ class IndividualPetActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.pet_go_back_button).setOnClickListener {
-            val intent = Intent(this, PetProfilesActivity::class.java)
-            startActivity(intent)
+            if (profile.name == "") {
+                user.petList.removeAt(profileIdx)
+                finish()
+            } else {
+                val intent = Intent(this, PetProfilesActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 }

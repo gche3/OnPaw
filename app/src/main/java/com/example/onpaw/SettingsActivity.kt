@@ -65,7 +65,7 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.settings_logout).setOnClickListener {
-            // logout properly later
+            logOutUser()
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
@@ -76,12 +76,10 @@ class SettingsActivity : AppCompatActivity() {
             builder.setMessage("Are you sure you want to delete your account? This action cannot be undone.")
 
             builder.setPositiveButton("Yes") { dialog, _ ->
-                petList.clear()
-                user.delete()
-                // actually implement later when we have a database
+                deleteUser(user)
 
                 dialog.dismiss()
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
             }
 

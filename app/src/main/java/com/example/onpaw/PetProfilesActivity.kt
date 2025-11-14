@@ -13,7 +13,7 @@ class PetProfilesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (petList.isEmpty()) {
+        if (user.petList.isEmpty()) {
             setContentView(R.layout.pet_profiles_empty)
 
             findViewById<ImageView>(R.id.pet_profiles_back).setOnClickListener {
@@ -23,9 +23,13 @@ class PetProfilesActivity : AppCompatActivity() {
 
             findViewById<ImageView>(R.id.pet_profiles_add).setOnClickListener {
                 val newPet = Pet()
-                petList.add(newPet)
+                user.petList.add(newPet)
+                val idx = userList.indexOfFirst { it.email == user.email }
+                if (idx != -1) {
+                    userList[idx].petList = user.petList
+                }
                 val intent = Intent(this, IndividualPetActivity::class.java)
-                intent.putExtra("profileIdx", petList.size - 1)
+                intent.putExtra("profileIdx", user.petList.size - 1)
                 startActivity(intent)
             }
 
@@ -34,11 +38,11 @@ class PetProfilesActivity : AppCompatActivity() {
 
             val inflater = LayoutInflater.from(this)
 
-            for (i in petList.indices) {
+            for (i in user.petList.indices) {
                 val linearParent = findViewById<LinearLayout>(R.id.pet_list_container)
                 val newPetProfile = inflater.inflate(R.layout.pet_profile_list_item, linearParent, false)
-                newPetProfile.findViewById<TextView>(R.id.pet_name).text = petList[i].name
-                newPetProfile.findViewById<ImageView>(R.id.pet_icon).setImageResource(petList[i].icon)
+                newPetProfile.findViewById<TextView>(R.id.pet_name).text = user.petList[i].name
+                newPetProfile.findViewById<ImageView>(R.id.pet_icon).setImageResource(user.petList[i].icon)
 
                 linearParent.addView(newPetProfile)
 
@@ -56,9 +60,13 @@ class PetProfilesActivity : AppCompatActivity() {
 
             findViewById<ImageView>(R.id.pet_profiles_add).setOnClickListener {
                 val newPet = Pet()
-                petList.add(newPet)
+                user.petList.add(newPet)
+                val idx = userList.indexOfFirst { it.email == user.email }
+                if (idx != -1) {
+                    userList[idx].petList = user.petList
+                }
                 val intent = Intent(this, IndividualPetActivity::class.java)
-                intent.putExtra("profileIdx", petList.size - 1)
+                intent.putExtra("profileIdx", user.petList.size - 1)
                 startActivity(intent)
             }
         }

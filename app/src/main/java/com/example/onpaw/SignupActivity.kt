@@ -45,6 +45,11 @@ class SignupActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            if (userList.any{ it.email == email}) {
+                Toast.makeText(this, "Email is already taken", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             if (password.length < 6) {
                 Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -62,6 +67,7 @@ class SignupActivity : AppCompatActivity() {
             // keep existing default address/coords unless you want to change them
             user.password = password
             user.isLoggedIn = true
+            userList.add(User(name = displayName, email = email, phone = phone, password = password))
 
             Toast.makeText(this, "Account created!", Toast.LENGTH_SHORT).show()
 

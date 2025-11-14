@@ -17,7 +17,7 @@ class LoginActivity : AppCompatActivity() {
 
         // Auto-skip login if already logged in
         if (user.isLoggedIn) {
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             return
         }
@@ -40,23 +40,22 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Case: no account saved yet
-            if (user.email.isBlank() || user.password.isBlank()) {
-                Toast.makeText(this, "No account found. Please sign up first.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
             // Check credentials
-            val emailMatches = email.equals(user.email, ignoreCase = true)
-            val passwordMatches = password == user.password
+            val findUser = userList.find { it.email == email && it.password == password }
 
-            if (emailMatches && passwordMatches) {
+            if (findUser != null) {
+                user.name = findUser.name
+                user.email = findUser.email
+                user.phone = findUser.phone
+                user.address = findUser.address
+                user.password = findUser.password
+                user.petList = findUser.petList
                 user.isLoggedIn = true
 
                 Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
 
                 // Navigate to HomeActivity
-                val intent = Intent(this, HomeActivity::class.java)
+                val intent = Intent(this, MainActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             } else {

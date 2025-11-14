@@ -18,19 +18,28 @@ data class User(
     var latitude: Double = 40.1020,  // ISR at UIUC coordinates
     var longitude: Double = -88.2282,
     var password: String = "",
-    var isLoggedIn: Boolean = false
-) {
-    fun delete() {
-        name = ""
-        email = ""
-        phone = ""
-        address = ""
-        password = ""
-        isLoggedIn = false
-    }
-}
+    var isLoggedIn: Boolean = false,
+    var petList: MutableList<Pet> = mutableListOf()
+)
 
 val userList: MutableList<User> = mutableListOf()
+val user = User()
+
+fun logOutUser() {
+    user.name = ""
+    user.email = ""
+    user.phone = ""
+    user.address = ""
+    user.password = ""
+    user.isLoggedIn = false
+}
+
+fun deleteUser(delUser : User) {
+    val idx = userList.indexOfFirst { it.email == delUser.email }
+    userList.removeAt(idx)
+    logOutUser()
+}
+
 
 
 // Pet Sitter data model
@@ -51,9 +60,7 @@ data class PetSitter(
     var profileImage: Int = R.drawable.account
 )
 
-// Global data instances
-val user = User()
-var petList: MutableList<Pet> = mutableListOf()
+//var petList: MutableList<Pet> = mutableListOf()
 
 // Fake pet sitters data
 val petSitters: MutableList<PetSitter> = mutableListOf(

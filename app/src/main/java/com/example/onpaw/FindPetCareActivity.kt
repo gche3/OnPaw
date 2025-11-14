@@ -28,19 +28,19 @@ class FindPetCareActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val chipGroupPets = findViewById<ChipGroup>(R.id.chipsPets)
-        if (petList.isEmpty()) {
+        if (user.petList.isEmpty()) {
             val chip = layoutInflater.inflate(R.layout.pet_chip, chipGroupPets, false) as Chip
             chip.setText(R.string.create_a_pet_profile)
             chip.setOnClickListener {
                 val newPet = Pet()
-                petList.add(newPet)
+                user.petList.add(newPet)
                 val intent = Intent(this, IndividualPetActivity::class.java)
-                intent.putExtra("profileIdx", petList.size - 1)
+                intent.putExtra("profileIdx", user.petList.size - 1)
                 startActivity(intent)
             }
             chipGroupPets.addView(chip)
         } else {
-            for (pet in petList) {
+            for (pet in user.petList) {
                 val chip = layoutInflater.inflate(R.layout.pet_chip, chipGroupPets, false) as Chip
                 chip.text = pet.name
                 chipGroupPets.addView(chip)
@@ -49,9 +49,9 @@ class FindPetCareActivity : AppCompatActivity() {
             chip.text = "+"
             chip.setOnClickListener {
                 val newPet = Pet()
-                petList.add(newPet)
+                user.petList.add(newPet)
                 val intent = Intent(this, IndividualPetActivity::class.java)
-                intent.putExtra("profileIdx", petList.size - 1)
+                intent.putExtra("profileIdx", user.petList.size - 1)
                 startActivity(intent)
             }
             chipGroupPets.addView(chip)

@@ -104,4 +104,7 @@
     <string name="re_enter_your_password">Re-enter your password</string>
     <string name="create_account">Create Account</string>
     <string name="login">Login</string>
+    <string name="i_am_a_pet_owner">I am a Pet Owner</string>
+    <string name="i_am_a_pet_sitter">I am a Pet Sitter</string>
+    <string name="i_have_an_emergency">I have an emergency!</string>
 </resources>

@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/pastel_blue"
-        android:text="I am a Pet Owner"
+        android:text="@string/i_am_a_pet_owner"
         android:textSize="24sp"
         android:paddingVertical="20dp" />
 
@@ -65,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/pastel_blue"
-        android:text="I am a Pet Sitter"
+        android:text="@string/i_am_a_pet_sitter"
         android:textSize="24sp"
         android:paddingVertical="20dp" />
 
@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/pastel_blue"
-        android:text="I have an emergency!"
+        android:text="@string/i_have_an_emergency"
         android:textSize="24sp"
         android:paddingVertical="20dp" />
 

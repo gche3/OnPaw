@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/pastel_tan">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/pastel_tan"
         android:elevation="2dp"
         android:title="@string/emergency_find_pet_care_title"
         app:titleCentered="true"
@@ -323,13 +323,14 @@
                 android:hint="@string/pickup_location_hint"
                 app:startIconDrawable="@android:drawable/ic_menu_mylocation"
                 app:startIconTint="@color/text_hint"
+                app:hintEnabled="false"
                 android:layout_marginBottom="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPickup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/current_location_default"
+                    android:hint="@string/current_location_default"
                     android:textColor="@color/text_primary" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -338,12 +339,13 @@
                 style="@style/OnPaw.LightField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/destination_optional_hint"
                 app:startIconDrawable="@android:drawable/ic_menu_directions"
+                app:hintEnabled="false"
                 app:startIconTint="@color/text_hint">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etDestination"
+                    android:hint="@string/destination_optional_hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_primary" />
@@ -364,6 +366,7 @@
                 style="@style/OnPaw.LightField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:hintEnabled="false"
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputEditText

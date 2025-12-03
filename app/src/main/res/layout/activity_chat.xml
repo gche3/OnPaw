@@ -4,15 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/pastel_tan">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/white"
+        android:background="@color/pastel_tan"
         android:elevation="2dp"
-        android:title="John Smith"
         app:titleCentered="true" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -57,7 +56,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="16dp"
-        android:background="@color/white"
         android:elevation="4dp">
 
         <com.google.android.material.textfield.TextInputLayout

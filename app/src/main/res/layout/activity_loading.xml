@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/pastel_brown"
+    android:background="@color/pastel_tan"
     android:padding="32dp">
 
     <!-- Animal Icons Row -->
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:text="@string/finding_your_sitter"
         android:textSize="28sp"
-        android:textColor="@color/black"
+        android:textColor="@color/cardview_dark_background"
         android:gravity="center" />
 
     <!-- Progress Indicator (Optional) -->

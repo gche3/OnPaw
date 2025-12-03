@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/pastel_tan">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/white"
+        android:background="@color/pastel_tan"
         android:elevation="2dp"
         android:title="@string/find_pet_care_title"
         app:titleCentered="true"
@@ -39,7 +39,7 @@
                 android:text="@string/select_pet"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/text_primary"
+                android:textColor="@color/cardview_dark_background"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="8dp" />
 
@@ -61,7 +61,7 @@
                 android:text="@string/what_tasks_needed"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/text_primary"
+                android:textColor="@color/cardview_dark_background"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="12dp" />
 
@@ -100,7 +100,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/task_dropoff"
                             android:textStyle="bold"
-                            android:textColor="@color/text_primary"
+                            android:textColor="@color/cardview_dark_background"
                             android:layout_marginTop="8dp" />
 
                     </LinearLayout>
@@ -133,7 +133,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/task_onsite_checkup"
                             android:textStyle="bold"
-                            android:textColor="@color/text_primary"
+                            android:textColor="@color/cardview_dark_background"
                             android:layout_marginTop="8dp" />
 
                     </LinearLayout>
@@ -166,7 +166,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/task_medication"
                             android:textStyle="bold"
-                            android:textColor="@color/text_primary"
+                            android:textColor="@color/cardview_dark_background"
                             android:layout_marginTop="8dp" />
 
                     </LinearLayout>
@@ -199,7 +199,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/task_transport"
                             android:textStyle="bold"
-                            android:textColor="@color/text_primary"
+                            android:textColor="@color/cardview_dark_background"
                             android:layout_marginTop="8dp" />
 
                     </LinearLayout>
@@ -214,7 +214,7 @@
                 android:text="@string/what_symptoms"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/text_primary"
+                android:textColor="@color/cardview_dark_background"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp" />
 
@@ -276,7 +276,7 @@
                 android:text="@string/location"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/text_primary"
+                android:textColor="@color/cardview_dark_background"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp" />
 
@@ -284,13 +284,14 @@
                 style="@style/OnPaw.LightField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/pickup_location_hint"
+                app:hintEnabled="false"
                 app:startIconDrawable="@android:drawable/ic_menu_mylocation"
                 app:startIconTint="@color/text_hint"
                 android:layout_marginBottom="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPickup"
+                    android:hint="@string/pickup_location_hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_primary" />
@@ -302,11 +303,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/destination_optional_hint"
+                app:hintEnabled="false"
                 app:startIconDrawable="@android:drawable/ic_menu_directions"
                 app:startIconTint="@color/text_hint">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etDestination"
+                    android:hint="@string/destination_optional_hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_primary" />
@@ -319,7 +322,7 @@
                 android:text="@string/additional_notes_optional"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/text_primary"
+                android:textColor="@color/cardview_dark_background"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp" />
 
@@ -327,6 +330,7 @@
                 style="@style/OnPaw.LightField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:hintEnabled="false"
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputEditText

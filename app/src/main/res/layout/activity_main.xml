@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/pastel_brown"
+    android:background="@color/pastel_tan"
     android:padding="32dp"
     tools:context=".MainActivity">
 
@@ -17,7 +18,9 @@
         android:clickable="true"
         android:focusable="true"
         android:layout_gravity="right"
-        android:contentDescription="@string/settings" />
+        android:contentDescription="@string/settings"
+        app:tint="@color/cardview_dark_background" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -35,7 +38,8 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/paw"
-            android:contentDescription="@string/app_logo" />
+            android:contentDescription="@string/app_logo"
+            app:tint="@color/cardview_dark_background" />
 
         <TextView
             android:layout_width="0dp"
@@ -46,13 +50,15 @@
             android:textStyle="bold"
             android:gravity="center"
             android:paddingStart="16dp"
+            android:textColor="@color/cardview_dark_background"
             android:paddingEnd="16dp" />
 
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/paw"
-            android:contentDescription="@string/app_logo" />
+            android:contentDescription="@string/app_logo"
+            app:tint="@color/cardview_dark_background" />
     </LinearLayout>
 
     <!-- Welcome Text -->

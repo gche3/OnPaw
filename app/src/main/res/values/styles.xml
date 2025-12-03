@@ -4,23 +4,23 @@
     <style name="OnPaw.PetChip" parent="Widget.Material3.Chip.Assist">
         <item name="chipBackgroundColor">@color/chip_bg_selector</item>
         <item name="chipStrokeWidth">1dp</item>
-        <item name="chipStrokeColor">@color/pastel_blue</item>
+        <item name="chipStrokeColor">@color/cardview_dark_background</item>
         <item name="android:textColor">@color/chip_text_selector</item>
         <item name="rippleColor">@color/pastel_blue</item>
     </style>
 
     <style name="OnPaw.TaskCard" parent="Widget.Material3.CardView.Elevated">
         <item name="strokeWidth">1dp</item>
-        <item name="strokeColor">@color/pastel_gray</item>
         <item name="cardCornerRadius">16dp</item>
         <item name="cardElevation">0dp</item>
         <item name="rippleColor">@color/pastel_blue</item>
+        <item name="strokeColor">@color/cardview_dark_background</item>
     </style>
 
     <style name="OnPaw.SymptomChip" parent="Widget.Material3.Chip.Filter">
         <item name="chipBackgroundColor">@color/chip_bg_selector</item>
         <item name="chipStrokeWidth">1dp</item>
-        <item name="chipStrokeColor">@color/pastel_gray</item>
+        <item name="chipStrokeColor">@color/cardview_dark_background</item>
         <item name="android:textColor">@color/chip_text_selector</item>
         <item name="rippleColor">@color/pastel_blue</item>
     </style>

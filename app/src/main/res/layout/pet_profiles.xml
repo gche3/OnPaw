@@ -4,7 +4,7 @@
     android:id="@+id/pet_profiles"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pastel_brown"
+    android:background="@color/pastel_tan"
     android:padding="32dp">
 
     <ImageView

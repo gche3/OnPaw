@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFE6DC"
+    android:background="@color/pastel_tan"
     android:padding="32dp">
 
     <!-- App title -->
@@ -28,7 +28,7 @@
         android:text="@string/onpaw"
         android:textSize="36sp"
         android:textStyle="bold"
-        android:textColor="#333333"
+        android:textColor="@color/cardview_dark_background"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +91,7 @@
         android:textSize="18sp"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:backgroundTint="#FF7A59"
+        android:backgroundTint="@color/pastel_blue"
         android:layout_marginTop="36dp"
         android:layout_marginHorizontal="32dp"
         app:layout_constraintTop_toBottomOf="@id/etPassword"

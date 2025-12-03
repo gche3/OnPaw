@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.InputType
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +31,7 @@ class FindPetCareActivity : AppCompatActivity() {
         val chipGroupPets = findViewById<ChipGroup>(R.id.chipsPets)
         if (user.petList.isEmpty()) {
             val chip = layoutInflater.inflate(R.layout.pet_chip, chipGroupPets, false) as Chip
+            chip.isCheckable = false
             chip.setText(R.string.create_a_pet_profile)
             chip.setOnClickListener {
                 val newPet = Pet()
@@ -42,11 +44,16 @@ class FindPetCareActivity : AppCompatActivity() {
         } else {
             for (pet in user.petList) {
                 val chip = layoutInflater.inflate(R.layout.pet_chip, chipGroupPets, false) as Chip
+                chip.id = View.generateViewId()
                 chip.text = pet.name
                 chipGroupPets.addView(chip)
             }
             val chip = layoutInflater.inflate(R.layout.pet_chip, chipGroupPets, false) as Chip
             chip.text = "+"
+            chip.id = View.generateViewId()
+            chip.isCheckable = false
+            chip.isClickable = true
+            chip.isChecked = false
             chip.setOnClickListener {
                 val newPet = Pet()
                 user.petList.add(newPet)

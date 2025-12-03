@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pastel_brown"
+    android:background="@color/pastel_tan"
     android:padding="32dp">
 
     <RelativeLayout
@@ -19,7 +20,8 @@
             android:clickable="true"
             android:src="@drawable/paw"
             android:contentDescription="@string/user_icon"
-            android:focusable="true" />
+            android:focusable="true"
+            app:tint="@color/cardview_dark_background" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -95,21 +97,28 @@
         android:layout_height="wrap_content"
         android:text="@string/note"
         android:textSize="24sp"
+
         android:paddingTop="16dp"
         android:paddingBottom="5dp"/>
 
-    <EditText
-        android:id="@+id/pet_note"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/OnPaw.LightField"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:autofillHints="Enter a note..."
-        android:hint="@string/enter_a_note"
-        android:padding="5dp"
-        android:inputType="text|textMultiLine"
-        android:gravity="top"
         android:layout_weight="1"
-        android:background="@color/pastel_gray"
-        />
+        app:hintEnabled="false"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pet_note"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top|start"
+            android:hint="@string/enter_a_note"
+            android:textColor="@color/text_primary"
+            android:inputType="textMultiLine" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 
@@ -150,7 +159,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:backgroundTint="@color/cardview_dark_background"
-        android:layout_marginVertical="20dp"
+        android:layout_marginTop="20dp"
         android:text="@string/go_back"
         android:paddingVertical="20dp"
         android:textSize="20sp"/>

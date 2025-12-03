@@ -66,10 +66,6 @@ class IndividualPetActivity : AppCompatActivity() {
                         .show()
                 }
             }
-            val idx = userList.indexOfFirst { it.email == user.email }
-            if (idx != -1) {
-                userList[idx].petList = user.petList
-            }
         }
 
         findViewById<Button>(R.id.pet_delete_button).setOnClickListener {

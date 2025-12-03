@@ -32,6 +32,7 @@ fun logOutUser() {
     user.address = ""
     user.password = ""
     user.isLoggedIn = false
+    user.petList = mutableListOf()
 }
 
 fun deleteUser(delUser : User) {

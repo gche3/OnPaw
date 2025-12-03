@@ -24,10 +24,6 @@ class PetProfilesActivity : AppCompatActivity() {
             findViewById<ImageView>(R.id.pet_profiles_add).setOnClickListener {
                 val newPet = Pet()
                 user.petList.add(newPet)
-                val idx = userList.indexOfFirst { it.email == user.email }
-                if (idx != -1) {
-                    userList[idx].petList = user.petList
-                }
                 val intent = Intent(this, IndividualPetActivity::class.java)
                 intent.putExtra("profileIdx", user.petList.size - 1)
                 startActivity(intent)
@@ -54,6 +50,10 @@ class PetProfilesActivity : AppCompatActivity() {
             }
 
             findViewById<ImageView>(R.id.pet_profiles_back).setOnClickListener {
+                val idx = userList.indexOfFirst { it.email == user.email }
+                if (idx != -1) {
+                    userList[idx].petList = user.petList
+                }
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
@@ -61,10 +61,6 @@ class PetProfilesActivity : AppCompatActivity() {
             findViewById<ImageView>(R.id.pet_profiles_add).setOnClickListener {
                 val newPet = Pet()
                 user.petList.add(newPet)
-                val idx = userList.indexOfFirst { it.email == user.email }
-                if (idx != -1) {
-                    userList[idx].petList = user.petList
-                }
                 val intent = Intent(this, IndividualPetActivity::class.java)
                 intent.putExtra("profileIdx", user.petList.size - 1)
                 startActivity(intent)

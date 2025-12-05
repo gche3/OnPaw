@@ -22,7 +22,14 @@ data class User(
     var petList: MutableList<Pet> = mutableListOf()
 )
 
-val userList: MutableList<User> = mutableListOf()
+val userList: MutableList<User> = mutableListOf(
+    User(
+        name = "Test User",
+        email = "1234@email.com",
+        phone = "123-456-7890",
+        password = "1234"
+    )
+)
 val user = User()
 
 fun logOutUser() {
@@ -37,7 +44,9 @@ fun logOutUser() {
 
 fun deleteUser(delUser : User) {
     val idx = userList.indexOfFirst { it.email == delUser.email }
-    userList.removeAt(idx)
+    if (idx != -1) {
+        userList.removeAt(idx)
+    }
     logOutUser()
 }
 
@@ -146,13 +155,66 @@ object ChatStore {
     val messageHistory = mutableMapOf<String, MutableList<ChatActivity.Message>>()
 }
 
-// Function to get the closest pet sitters
+// Booking status enum
+enum class BookingStatus {
+    PENDING,      // Request sent, waiting for sitter to accept
+    ACCEPTED,     // Sitter accepted, on their way
+    IN_PROGRESS,  // Sitter is with the pet
+    COMPLETED,    // Service completed
+    CANCELLED     // Booking was cancelled
+}
+
+// Booking request data model
+data class BookingRequest(
+    var id: String = "",
+    var ownerId: String = "",
+    var ownerName: String = "",
+    var sitterId: String = "",
+    var sitterName: String = "",
+    var petName: String = "",
+    var petSpecies: String = "",
+    var tasks: String = "",
+    var symptoms: String = "",
+    var pickupAddress: String = "",
+    var destinationAddress: String = "",
+    var notes: String = "",
+    var status: BookingStatus = BookingStatus.PENDING,
+    var createdAt: Long = System.currentTimeMillis(),
+    var ownerLatitude: Double = 0.0,
+    var ownerLongitude: Double = 0.0
+)
+
+// Current active booking (for fake data mode)
+var currentBooking: BookingRequest? = null
+
+// Current matched sitter (for fake data mode)
+var matchedSitter: PetSitter? = null
+
+// Function to get the closest pet sitters using Haversine formula
 fun getClosestPetSitters(userLat: Double, userLon: Double, limit: Int = 5): List<PetSitter> {
     return petSitters.sortedBy { sitter ->
-        // Simple distance calculation (Haversine would be more accurate)
-        val latDiff = sitter.latitude - userLat
-        val lonDiff = sitter.longitude - userLon
-        Math.sqrt(latDiff * latDiff + lonDiff * lonDiff)
+        calculateDistanceKm(userLat, userLon, sitter.latitude, sitter.longitude)
     }.take(limit)
+}
+
+// Haversine formula for accurate distance calculation
+fun calculateDistanceKm(lat1: Double, lon1: Double, lat2: Double, lon2: Double): Double {
+    val earthRadius = 6371.0 // Earth radius in kilometers
+    
+    val dLat = Math.toRadians(lat2 - lat1)
+    val dLon = Math.toRadians(lon2 - lon1)
+    
+    val a = kotlin.math.sin(dLat / 2) * kotlin.math.sin(dLat / 2) +
+            kotlin.math.cos(Math.toRadians(lat1)) * kotlin.math.cos(Math.toRadians(lat2)) *
+            kotlin.math.sin(dLon / 2) * kotlin.math.sin(dLon / 2)
+    
+    val c = 2 * kotlin.math.atan2(kotlin.math.sqrt(a), kotlin.math.sqrt(1 - a))
+    
+    return earthRadius * c
+}
+
+// Find closest available sitter (used by LoadingActivity)
+fun findClosestAvailableSitter(userLat: Double, userLon: Double): PetSitter? {
+    return getClosestPetSitters(userLat, userLon, 1).firstOrNull()
 }
 

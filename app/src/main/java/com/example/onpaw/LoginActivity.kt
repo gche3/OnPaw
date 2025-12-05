@@ -19,6 +19,7 @@ class LoginActivity : AppCompatActivity() {
         if (user.isLoggedIn) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
             return
         }
 
@@ -48,6 +49,8 @@ class LoginActivity : AppCompatActivity() {
                 user.email = findUser.email
                 user.phone = findUser.phone
                 user.address = findUser.address
+                user.latitude = findUser.latitude
+                user.longitude = findUser.longitude
                 user.password = findUser.password
                 user.petList = findUser.petList
                 user.isLoggedIn = true

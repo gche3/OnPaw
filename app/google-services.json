@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "748541779036",
+    "project_id": "onpaw-8be72",
+    "storage_bucket": "onpaw-8be72.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748541779036:android:68322550d81c32b5015a99",
+        "android_client_info": {
+          "package_name": "com.example.onpaw"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoMR1oqv8HntkddGCUaMnMDf22Aw-9Xnw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

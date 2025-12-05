@@ -13,9 +13,10 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
 
-        // Pet Sitter button
+        // Pet Sitter button - now navigates to sitter login
         findViewById<Button>(R.id.btn_pet_sitter).setOnClickListener {
-            Toast.makeText(this, "Sitter Login!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, SitterLoginActivity::class.java)
+            startActivity(intent)
         }
 
         // Pet Owner button

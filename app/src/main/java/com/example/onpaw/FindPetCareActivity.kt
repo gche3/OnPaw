@@ -172,11 +172,21 @@ class FindPetCareActivity : AppCompatActivity() {
                 appendLine("Notes: ${if (notes.isBlank()) "N/A" else notes}")
             }
 
+            // Get selected pet's species
+            val selectedPetSpecies = user.petList.find { it.name == selectedPet }?.species ?: ""
+
             AlertDialog.Builder(this)
                 .setTitle(getString(R.string.find_pet_care_title))
                 .setMessage(message)
                 .setPositiveButton("Confirm") { _, _ ->
                     val intent = Intent(this, LoadingActivity::class.java)
+                    intent.putExtra("petName", selectedPet)
+                    intent.putExtra("petSpecies", selectedPetSpecies)
+                    intent.putExtra("tasks", selectedTasks)
+                    intent.putExtra("symptoms", selectedSymptoms)
+                    intent.putExtra("pickup", pickup)
+                    intent.putExtra("destination", destination)
+                    intent.putExtra("notes", notes)
                     startActivity(intent)
                 }
                 .setNegativeButton("Cancel", null)

@@ -50,9 +50,11 @@ class FindSittersActivity : AppCompatActivity() {
 
         // Call button
         findViewById<ImageView>(R.id.btn_call).setOnClickListener {
-            val phoneNumber = "1234567890" // Replace with actual sitter phone
-            val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phoneNumber"))
-            startActivity(intent)
+            val phoneNumber = currentSitter?.phone ?: ""
+            if (phoneNumber.isNotEmpty()) {
+                val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phoneNumber"))
+                startActivity(intent)
+            }
         }
 
         // Send message button
@@ -113,10 +115,10 @@ class FindSittersActivity : AppCompatActivity() {
         userMarker.title = "Your Location\n${user.address}"
         mapView.overlays.add(userMarker)
 
-        // Add only the closest pet sitter marker
-        val closestSitters = getClosestPetSitters(user.latitude, user.longitude, 1)
-        if (closestSitters.isNotEmpty()) {
-            currentSitter = closestSitters[0]
+        // Use the matched sitter from LoadingActivity, or fall back to finding closest
+        currentSitter = matchedSitter ?: getClosestPetSitters(user.latitude, user.longitude, 1).firstOrNull()
+        
+        if (currentSitter != null) {
             val sitter = currentSitter!!
             val sitterMarker = Marker(mapView)
             sitterMarker.position = GeoPoint(sitter.latitude, sitter.longitude)
@@ -195,15 +197,41 @@ class FindSittersActivity : AppCompatActivity() {
         mapView.onPause()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        // Clear all chat messages when leaving the sitter tracking screen
+        ChatStore.messageHistory.clear()
+        // Clear the booking and matched sitter
+        currentBooking = null
+        matchedSitter = null
+    }
+
     private fun showCancelConfirmationDialog() {
         val builder = androidx.appcompat.app.AlertDialog.Builder(this)
         builder.setTitle("Cancel Booking")
         builder.setMessage("Are you sure you want to cancel?")
 
         builder.setPositiveButton("Yes") { dialog, _ ->
-            Toast.makeText(this, "Booking cancelled", Toast.LENGTH_SHORT).show()
-            dialog.dismiss()
-            finish()
+            // Update booking status if using Firebase
+            if (AppConfig.USE_FIREBASE && currentBooking != null) {
+                FirebaseRepository.updateBookingStatus(
+                    bookingId = currentBooking!!.id,
+                    status = BookingStatus.CANCELLED,
+                    onSuccess = {
+                        Toast.makeText(this, "Booking cancelled", Toast.LENGTH_SHORT).show()
+                        dialog.dismiss()
+                        finish()
+                    },
+                    onError = { error ->
+                        Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
+                    }
+                )
+            } else {
+                currentBooking?.status = BookingStatus.CANCELLED
+                Toast.makeText(this, "Booking cancelled", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+                finish()
+            }
         }
 
         builder.setNegativeButton("No") { dialog, _ ->

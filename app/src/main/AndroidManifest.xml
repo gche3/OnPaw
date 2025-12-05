@@ -93,6 +93,30 @@
             android:name=".ChatActivity"
             android:exported="false" />
 
+        <!-- Sitter Login screen -->
+        <activity
+            android:name=".SitterLoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.OnPaw" />
+
+        <!-- Sitter Signup screen -->
+        <activity
+            android:name=".SitterSignupActivity"
+            android:exported="false"
+            android:theme="@style/Theme.OnPaw" />
+
+        <!-- Sitter Home/Dashboard screen -->
+        <activity
+            android:name=".SitterHomeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.OnPaw" />
+
+        <!-- Sitter Active Booking screen -->
+        <activity
+            android:name=".SitterActiveBookingActivity"
+            android:exported="false"
+            android:theme="@style/Theme.OnPaw" />
+
     </application>
 
 </manifest>

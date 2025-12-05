@@ -77,11 +77,13 @@
         android:id="@+id/btn_emergency"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/pastel_blue"
+        android:backgroundTint="@color/emergency_red"
         android:text="@string/i_have_an_emergency"
-        android:textSize="24sp"
-        android:paddingVertical="20dp" />
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:paddingVertical="28dp" />
 
     <!-- Spacer -->
     <View

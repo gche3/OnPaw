@@ -109,4 +109,7 @@
     <string name="i_have_an_emergency">I have an emergency!</string>
     <string name="log_out">Log Out</string>
     <string name="plus">+</string>
+    <string name="sitter_login">Sitter Login</string>
+    <string name="sitter_signup">Sitter Sign Up</string>
+    <string name="dont_have_sitter_account"><u>Don\'t have a sitter account? Sign up here!</u></string>
 </resources>

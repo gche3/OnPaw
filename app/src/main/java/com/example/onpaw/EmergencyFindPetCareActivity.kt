@@ -2,54 +2,78 @@ package com.example.onpaw
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.InputType
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.EditText
-import android.widget.Toast
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.children
+import androidx.gridlayout.widget.GridLayout
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
-import com.google.android.material.chip.Chip
-import com.google.android.material.chip.ChipGroup
+import com.google.android.material.progressindicator.LinearProgressIndicator
 import com.google.android.material.textfield.TextInputEditText
 
 class EmergencyFindPetCareActivity : AppCompatActivity() {
 
+    private val totalSteps = 4
+    private var currentStep = 0
+
+    private fun Int.dpToPx(): Int =
+        (this * resources.displayMetrics.density).toInt()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_emergency_find_pet_care)
 
         val toolbar = findViewById<MaterialToolbar>(R.id.topAppBar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val chipGroupAnimalType = findViewById<ChipGroup>(R.id.chipsAnimalType)
-        val chipGroupSymptoms = findViewById<ChipGroup>(R.id.chipsSymptoms)
-        val chipAddSymptom = findViewById<Chip>(R.id.chipAddSymptom)
+        val tvStepTitle = findViewById<TextView>(R.id.tvStepTitle)
+        val stepProgress = findViewById<LinearProgressIndicator>(R.id.stepProgress)
 
-        val cardDropoff = findViewById<MaterialCardView>(R.id.cardDropoff)
-        val cardCheckup = findViewById<MaterialCardView>(R.id.cardCheckup)
-        val cardMeds = findViewById<MaterialCardView>(R.id.cardMeds)
-        val cardTransport = findViewById<MaterialCardView>(R.id.cardTransport)
+        val stepAnimal = findViewById<View>(R.id.stepAnimal)
+        val stepTasks = findViewById<View>(R.id.stepTasks)
+        val stepSymptoms = findViewById<View>(R.id.stepSymptoms)
+        val stepLocation = findViewById<View>(R.id.stepLocation)
 
-        val etPickup = findViewById<TextInputEditText>(R.id.etPickup)
-        val etDestination = findViewById<TextInputEditText>(R.id.etDestination)
-        val etNotes = findViewById<TextInputEditText>(R.id.etNotes)
-
+        val btnBack = findViewById<MaterialButton>(R.id.btnBack)
         val btnRequest = findViewById<MaterialButton>(R.id.btnRequest)
 
-        val taskCards: List<Pair<MaterialCardView, String>> = listOf(
-            cardDropoff to getString(R.string.task_dropoff),
-            cardCheckup to getString(R.string.task_onsite_checkup),
-            cardMeds to getString(R.string.task_medication),
-            cardTransport to getString(R.string.task_transport)
-        )
+        val animalContainer = findViewById<LinearLayout>(R.id.animalOptionList)
+
+        val cardAnimalDog = findViewById<MaterialCardView>(R.id.cardAnimalDog)
+        val cardAnimalCat = findViewById<MaterialCardView>(R.id.cardAnimalCat)
+        val cardAnimalBunny = findViewById<MaterialCardView>(R.id.cardAnimalBunny)
+        val cardAnimalHamster = findViewById<MaterialCardView>(R.id.cardAnimalHamster)
+        val cardAnimalAdd = findViewById<MaterialCardView>(R.id.cardAnimalAdd)
+
+        val tvAnimalDog = findViewById<TextView>(R.id.tvAnimalDog)
+        val tvAnimalCat = findViewById<TextView>(R.id.tvAnimalCat)
+        val tvAnimalBunny = findViewById<TextView>(R.id.tvAnimalBunny)
+        val tvAnimalHamster = findViewById<TextView>(R.id.tvAnimalHamster)
+        val tvAnimalAdd = findViewById<TextView>(R.id.tvAnimalAdd)
+
+        val animalCards = mutableListOf<MaterialCardView>()
+        val animalLabels = mutableMapOf<MaterialCardView, String>()
+
+        fun registerAnimalCard(card: MaterialCardView, label: String) {
+            animalCards.add(card)
+            animalLabels[card] = label
+        }
+
+        registerAnimalCard(cardAnimalDog, tvAnimalDog.text.toString())
+        registerAnimalCard(cardAnimalCat, tvAnimalCat.text.toString())
+        registerAnimalCard(cardAnimalBunny, tvAnimalBunny.text.toString())
+        registerAnimalCard(cardAnimalHamster, tvAnimalHamster.text.toString())
+
+        var selectedAnimal: String = tvAnimalDog.text.toString()
 
         val selectedColor = ContextCompat.getColor(this, R.color.pastel_blue)
         val unselectedColor = ContextCompat.getColor(this, android.R.color.white)
@@ -67,87 +91,293 @@ class EmergencyFindPetCareActivity : AppCompatActivity() {
             }
         }
 
-        taskCards.forEach { (card, _) ->
-            applyCardState(card, false)
-            card.setOnClickListener {
-                val currentlySelected = card.tag as? Boolean ?: false
-                applyCardState(card, !currentlySelected)
-            }
+        fun selectAnimalCard(card: MaterialCardView) {
+            animalCards.forEach { applyCardState(it, it == card) }
+            selectedAnimal = animalLabels[card] ?: ""
         }
 
-        chipAddSymptom.setOnClickListener {
+        animalCards.forEach { applyCardState(it, false) }
+        applyCardState(cardAnimalAdd, false)
+        selectAnimalCard(cardAnimalDog)
+
+        cardAnimalDog.setOnClickListener { selectAnimalCard(cardAnimalDog) }
+        cardAnimalCat.setOnClickListener { selectAnimalCard(cardAnimalCat) }
+        cardAnimalBunny.setOnClickListener { selectAnimalCard(cardAnimalBunny) }
+        cardAnimalHamster.setOnClickListener { selectAnimalCard(cardAnimalHamster) }
+
+        fun createAnimalCard(label: String): MaterialCardView {
+            val template = cardAnimalDog
+            val lpTemplate = template.layoutParams as LinearLayout.LayoutParams
+
+            val card = MaterialCardView(this).apply {
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    lpTemplate.height
+                ).apply {
+                    bottomMargin = 12.dpToPx()
+                }
+                radius = template.radius
+                cardElevation = template.cardElevation
+                useCompatPadding = template.useCompatPadding
+            }
+
+            val inner = LinearLayout(this).apply {
+                orientation = LinearLayout.HORIZONTAL
+                gravity = Gravity.CENTER_VERTICAL
+                setPadding(16.dpToPx(), 0, 16.dpToPx(), 0)
+            }
+
+            val tv = TextView(this).apply {
+                text = label
+                textSize = 16f
+                setTextColor(
+                    ContextCompat.getColor(
+                        this@EmergencyFindPetCareActivity,
+                        R.color.text_primary
+                    )
+                )
+            }
+
+            inner.addView(tv)
+            card.addView(inner)
+
+            return card
+        }
+
+        cardAnimalAdd.setOnClickListener {
             val input = EditText(this).apply {
-                hint = getString(R.string.sym_add_hint)
-                inputType = InputType.TYPE_CLASS_TEXT
+                hint = "Enter animal type"
             }
 
             AlertDialog.Builder(this)
-                .setTitle(getString(R.string.sym_add_dialog_title))
+                .setTitle("Add animal type")
                 .setView(input)
-                .setPositiveButton(getString(R.string.sym_add_dialog_add)) { _, _ ->
+                .setPositiveButton("Add") { _, _ ->
                     val text = input.text.toString().trim()
                     if (text.isNotEmpty()) {
-                        val newChip = Chip(this).apply {
-                            this.text = text
-                            isCheckable = true
-                            isChecked = true
-                            setTextColor(
-                                ContextCompat.getColor(
-                                    this@EmergencyFindPetCareActivity,
-                                    R.color.text_primary
-                                )
-                            )
+                        val newCard = createAnimalCard(text)
+
+                        registerAnimalCard(newCard, text)
+
+                        newCard.setOnClickListener {
+                            selectAnimalCard(newCard)
                         }
-                        chipGroupSymptoms.addView(newChip, chipGroupSymptoms.childCount - 1)
+
+                        val addIndex = animalContainer.indexOfChild(cardAnimalAdd)
+                        animalContainer.addView(newCard, addIndex)
+
+                        selectAnimalCard(newCard)
                     }
                 }
                 .setNegativeButton(android.R.string.cancel, null)
                 .show()
         }
 
-        btnRequest.setOnClickListener {
-            val selectedAnimalChipId = chipGroupAnimalType.checkedChipId
-            val selectedAnimalType = if (selectedAnimalChipId != -1) {
-                chipGroupAnimalType.findViewById<Chip>(selectedAnimalChipId)?.text?.toString()
-                    ?: getString(R.string.select_animal_type)
-            } else {
-                getString(R.string.select_animal_type)
+        val gridTasks = findViewById<GridLayout>(R.id.gridTasks)
+
+        val cardDropoff = findViewById<MaterialCardView>(R.id.cardDropoff)
+        val cardCheckup = findViewById<MaterialCardView>(R.id.cardCheckup)
+        val cardMeds = findViewById<MaterialCardView>(R.id.cardMeds)
+        val cardTransport = findViewById<MaterialCardView>(R.id.cardTransport)
+
+        val tvTaskDropoff = findViewById<TextView>(R.id.tvTaskDropoff)
+        val tvTaskCheckup = findViewById<TextView>(R.id.tvTaskCheckup)
+        val tvTaskMeds = findViewById<TextView>(R.id.tvTaskMeds)
+        val tvTaskTransport = findViewById<TextView>(R.id.tvTaskTransport)
+
+        val taskCards = mutableListOf<MaterialCardView>()
+        val taskLabels = mutableMapOf<MaterialCardView, String>()
+
+        fun registerTaskCard(card: MaterialCardView, label: String) {
+            taskCards.add(card)
+            taskLabels[card] = label
+        }
+
+        registerTaskCard(cardDropoff, tvTaskDropoff.text.toString())
+        registerTaskCard(cardCheckup, tvTaskCheckup.text.toString())
+        registerTaskCard(cardMeds, tvTaskMeds.text.toString())
+        registerTaskCard(cardTransport, tvTaskTransport.text.toString())
+
+        taskCards.forEach { applyCardState(it, false) }
+
+        taskCards.forEach { card ->
+            card.setOnClickListener {
+                val currentlySelected = card.tag as? Boolean ?: false
+                applyCardState(card, !currentlySelected)
+            }
+        }
+
+        val symptomContainer = findViewById<LinearLayout>(R.id.symptomOptionList)
+
+        val cardSymLethargy = findViewById<MaterialCardView>(R.id.cardSymLethargy)
+        val cardSymVomit = findViewById<MaterialCardView>(R.id.cardSymVomit)
+        val cardSymBreathing = findViewById<MaterialCardView>(R.id.cardSymBreathing)
+        val cardSymInjury = findViewById<MaterialCardView>(R.id.cardSymInjury)
+        val cardSymSeizure = findViewById<MaterialCardView>(R.id.cardSymSeizure)
+        val cardSymAdd = findViewById<MaterialCardView>(R.id.cardSymAdd)
+
+        val tvSymLethargy = findViewById<TextView>(R.id.tvSymLethargy)
+        val tvSymVomit = findViewById<TextView>(R.id.tvSymVomit)
+        val tvSymBreathing = findViewById<TextView>(R.id.tvSymBreathing)
+        val tvSymInjury = findViewById<TextView>(R.id.tvSymInjury)
+        val tvSymSeizure = findViewById<TextView>(R.id.tvSymSeizure)
+        val tvSymAdd = findViewById<TextView>(R.id.tvSymAdd)
+
+        val symptomCards = mutableListOf<MaterialCardView>()
+        val symptomLabels = mutableMapOf<MaterialCardView, String>()
+
+        fun registerSymptomCard(card: MaterialCardView, label: String) {
+            symptomCards.add(card)
+            symptomLabels[card] = label
+        }
+
+        registerSymptomCard(cardSymLethargy, tvSymLethargy.text.toString())
+        registerSymptomCard(cardSymVomit, tvSymVomit.text.toString())
+        registerSymptomCard(cardSymBreathing, tvSymBreathing.text.toString())
+        registerSymptomCard(cardSymInjury, tvSymInjury.text.toString())
+        registerSymptomCard(cardSymSeizure, tvSymSeizure.text.toString())
+
+        symptomCards.forEach { applyCardState(it, false) }
+        applyCardState(cardSymAdd, false)
+
+        symptomCards.forEach { card ->
+            card.setOnClickListener {
+                val currentlySelected = card.tag as? Boolean ?: false
+                applyCardState(card, !currentlySelected)
+            }
+        }
+
+        fun createSymptomCard(label: String): MaterialCardView {
+            val template = cardSymLethargy
+            val lpTemplate = template.layoutParams as LinearLayout.LayoutParams
+
+            val card = MaterialCardView(this).apply {
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    lpTemplate.height
+                ).apply {
+                    bottomMargin = 12.dpToPx()
+                }
+                radius = template.radius
+                cardElevation = template.cardElevation
+                useCompatPadding = template.useCompatPadding
             }
 
-            val selectedSymptoms = chipGroupSymptoms.children
-                .filterIsInstance<Chip>()
-                .filter { it.isCheckable && it.isChecked }
-                .joinToString(separator = ", ") { it.text.toString() }
-                .ifEmpty { "None selected" }
+            val tv = TextView(this).apply {
+                text = label
+                textSize = 16f
+                setTextColor(
+                    ContextCompat.getColor(
+                        this@EmergencyFindPetCareActivity,
+                        R.color.text_primary
+                    )
+                )
+                gravity = Gravity.CENTER_VERTICAL
+                setPadding(16.dpToPx(), 0, 16.dpToPx(), 0)
+            }
 
-            val selectedTasks = taskCards
-                .filter { (card, _) -> (card.tag as? Boolean) == true }
-                .joinToString(separator = ", ") { it.second }
-                .ifEmpty { "None selected" }
+            card.addView(tv)
+            return card
+        }
 
-            val pickup = etPickup.text?.toString().orEmpty()
-            val destination = etDestination.text?.toString().orEmpty()
-            val notes = etNotes.text?.toString().orEmpty()
-
-            val message = buildString {
-                appendLine("Animal type: $selectedAnimalType")
-                appendLine("Tasks: $selectedTasks")
-                appendLine("Symptoms: $selectedSymptoms")
-                appendLine("Pickup: $pickup")
-                appendLine("Destination: ${if (destination.isBlank()) "N/A" else destination}")
-                appendLine("Notes: ${if (notes.isBlank()) "N/A" else notes}")
+        cardSymAdd.setOnClickListener {
+            val input = EditText(this).apply {
+                hint = "Describe symptom"
             }
 
             AlertDialog.Builder(this)
-                .setTitle(getString(R.string.request_emergency_care))
-                .setMessage(message)
-                .setPositiveButton("Confirm") { _, _ ->
-                    val intent = Intent(this, LoadingActivity::class.java)
-                    startActivity(intent)
+                .setTitle("Add symptom")
+                .setView(input)
+                .setPositiveButton("Add") { _, _ ->
+                    val text = input.text.toString().trim()
+                    if (text.isNotEmpty()) {
+                        val newCard = createSymptomCard(text)
+                        registerSymptomCard(newCard, text)
+                        applyCardState(newCard, true)
+
+                        newCard.setOnClickListener {
+                            val currentlySelected = newCard.tag as? Boolean ?: false
+                            applyCardState(newCard, !currentlySelected)
+                        }
+
+                        val addIndex = symptomContainer.indexOfChild(cardSymAdd)
+                        symptomContainer.addView(newCard, addIndex)
+                    }
                 }
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton(android.R.string.cancel, null)
                 .show()
         }
+
+        val etPickup = findViewById<TextInputEditText>(R.id.etPickup)
+        val etDestination = findViewById<TextInputEditText>(R.id.etDestination)
+        val etNotes = findViewById<TextInputEditText>(R.id.etNotes)
+
+        fun updateStepUI() {
+            stepAnimal.visibility = if (currentStep == 0) View.VISIBLE else View.GONE
+            stepTasks.visibility = if (currentStep == 1) View.VISIBLE else View.GONE
+            stepSymptoms.visibility = if (currentStep == 2) View.VISIBLE else View.GONE
+            stepLocation.visibility = if (currentStep == 3) View.VISIBLE else View.GONE
+
+            tvStepTitle.text = "Step ${currentStep + 1} of $totalSteps"
+
+            val progress = ((currentStep + 1) * 100) / totalSteps
+            stepProgress.setProgress(progress, true)
+
+            btnBack.isEnabled = currentStep > 0
+            btnRequest.text = if (currentStep == totalSteps - 1) "Find Care" else "Next"
+        }
+
+        btnBack.setOnClickListener {
+            if (currentStep > 0) {
+                currentStep--
+                updateStepUI()
+            }
+        }
+
+        btnRequest.setOnClickListener {
+            if (currentStep < totalSteps - 1) {
+                currentStep++
+                updateStepUI()
+            } else {
+                val selectedTasksSummary = taskCards
+                    .filter { (it.tag as? Boolean) == true }
+                    .mapNotNull { taskLabels[it] }
+                    .joinToString(", ")
+                    .ifEmpty { "None selected" }
+
+                val selectedSymptomsSummary = symptomCards
+                    .filter { (it.tag as? Boolean) == true }
+                    .mapNotNull { symptomLabels[it] }
+                    .joinToString(", ")
+                    .ifEmpty { "None selected" }
+
+                val pickup = etPickup.text?.toString().orEmpty()
+                val destination = etDestination.text?.toString().orEmpty()
+                val notes = etNotes.text?.toString().orEmpty()
+
+                val animalSummary = selectedAnimal.ifBlank { "Unknown" }
+
+                val message = buildString {
+                    appendLine("Animal: $animalSummary")
+                    appendLine("Tasks: $selectedTasksSummary")
+                    appendLine("Symptoms: $selectedSymptomsSummary")
+                    appendLine("Pickup: $pickup")
+                    appendLine("Destination: ${if (destination.isBlank()) "N/A" else destination}")
+                    appendLine("Notes: ${if (notes.isBlank()) "N/A" else notes}")
+                }
+
+                AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.find_pet_care_title))
+                    .setMessage(message)
+                    .setPositiveButton("Confirm") { _, _ ->
+                        startActivity(Intent(this, LoadingActivity::class.java))
+                    }
+                    .setNegativeButton("Cancel", null)
+                    .show()
+            }
+        }
+
+        updateStepUI()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -162,18 +392,10 @@ class EmergencyFindPetCareActivity : AppCompatActivity() {
                 return true
             }
             R.id.action_profile -> {
-                openProfile()
+                startActivity(Intent(this, SettingsActivity::class.java))
                 return true
             }
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    private fun openProfile() {
-        AlertDialog.Builder(this)
-            .setTitle("Profile")
-            .setMessage("Profile screen would open here.")
-            .setPositiveButton("OK", null)
-            .show()
     }
 }
